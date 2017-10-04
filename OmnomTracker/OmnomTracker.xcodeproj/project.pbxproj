@@ -7,22 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F6401231F836E5A003038C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6401221F836E5A003038C2 /* AppDelegate.swift */; };
 		3F6401251F836E5A003038C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6401241F836E5A003038C2 /* ViewController.swift */; };
 		3F6401281F836E5A003038C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6401261F836E5A003038C2 /* Main.storyboard */; };
 		3F64012A1F836E5B003038C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F6401291F836E5B003038C2 /* Assets.xcassets */; };
 		3F64012D1F836E5B003038C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F64012B1F836E5B003038C2 /* LaunchScreen.storyboard */; };
+		567FE2981F854062004DDB84 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567FE2961F854062004DDB84 /* FBSDKCoreKit.framework */; };
+		567FE2991F854062004DDB84 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567FE2971F854062004DDB84 /* FBSDKLoginKit.framework */; };
+		567FE29B1F854093004DDB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FE29A1F854093004DDB84 /* AppDelegate.swift */; };
 		A5AFA41EBB8D76BE18F3D10F /* Pods_OmnomTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE75B4D538BE12B6C4A3AA3 /* Pods_OmnomTracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F64011F1F836E5A003038C2 /* OmnomTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnomTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F6401221F836E5A003038C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F6401241F836E5A003038C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3F6401271F836E5A003038C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F6401291F836E5B003038C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F64012C1F836E5B003038C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F64012E1F836E5B003038C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		567FE2961F854062004DDB84 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		567FE2971F854062004DDB84 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		567FE29A1F854093004DDB84 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		56F8D1161F853D73006CD33C /* OmnomTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OmnomTracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		6BAD80E1EA9F518A6A23FEF3 /* Pods-OmnomTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnomTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnomTracker/Pods-OmnomTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		A2A65F25E9C61BBE9C6E94AF /* Pods-OmnomTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnomTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnomTracker/Pods-OmnomTracker.release.xcconfig"; sourceTree = "<group>"; };
 		DFE75B4D538BE12B6C4A3AA3 /* Pods_OmnomTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmnomTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +39,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5AFA41EBB8D76BE18F3D10F /* Pods_OmnomTracker.framework in Frameworks */,
+				567FE2981F854062004DDB84 /* FBSDKCoreKit.framework in Frameworks */,
+				567FE2991F854062004DDB84 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,12 +76,15 @@
 		3F6401211F836E5A003038C2 /* OmnomTracker */ = {
 			isa = PBXGroup;
 			children = (
-				3F6401221F836E5A003038C2 /* AppDelegate.swift */,
+				567FE29A1F854093004DDB84 /* AppDelegate.swift */,
 				3F6401241F836E5A003038C2 /* ViewController.swift */,
 				3F6401261F836E5A003038C2 /* Main.storyboard */,
 				3F6401291F836E5B003038C2 /* Assets.xcassets */,
 				3F64012B1F836E5B003038C2 /* LaunchScreen.storyboard */,
 				3F64012E1F836E5B003038C2 /* Info.plist */,
+				56F8D1161F853D73006CD33C /* OmnomTracker-Bridging-Header.h */,
+				567FE2961F854062004DDB84 /* FBSDKCoreKit.framework */,
+				567FE2971F854062004DDB84 /* FBSDKLoginKit.framework */,
 			);
 			path = OmnomTracker;
 			sourceTree = "<group>";
@@ -123,6 +133,7 @@
 				TargetAttributes = {
 					3F64011E1F836E5A003038C2 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -232,8 +243,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				567FE29B1F854093004DDB84 /* AppDelegate.swift in Sources */,
 				3F6401251F836E5A003038C2 /* ViewController.swift in Sources */,
-				3F6401231F836E5A003038C2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,11 +370,18 @@
 			baseConfigurationReference = 6BAD80E1EA9F518A6A23FEF3 /* Pods-OmnomTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OmnomTracker",
+				);
 				INFOPLIST_FILE = OmnomTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = be.pxl.OmnomTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OmnomTracker/OmnomTracker-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -373,11 +391,17 @@
 			baseConfigurationReference = A2A65F25E9C61BBE9C6E94AF /* Pods-OmnomTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OmnomTracker",
+				);
 				INFOPLIST_FILE = OmnomTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = be.pxl.OmnomTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OmnomTracker/OmnomTracker-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -401,6 +425,7 @@
 				3F6401331F836E5B003038C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

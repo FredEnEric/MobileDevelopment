@@ -7,14 +7,28 @@
 //
 
 import UIKit
+import FacebookLogin
+import FacebookCore
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
+
+    
 
     @IBOutlet weak var userName: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        userName.text = "PJ"
-        // Do any additional setup after loading the view, typically from a nib.
+        let loginButton = LoginButton(readPermissions: [ .publicProfile ])
+        loginButton.center = view.center
+        
+        if AccessToken.current != nil {
+           
+        }
+  
+        
+    }
+    
+    func fetchProfile(){
+        print("fech profile")
     }
 
     override func didReceiveMemoryWarning() {
