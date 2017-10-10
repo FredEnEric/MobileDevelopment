@@ -53,8 +53,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5AFA41EBB8D76BE18F3D10F /* Pods_OmnomTracker.framework in Frameworks */,
-				567FE2981F854062004DDB84 /* FBSDKCoreKit.framework in Frameworks */,
-				567FE2991F854062004DDB84 /* FBSDKLoginKit.framework in Frameworks */,
+				3FB211641F8CBDD9005F8418 /* FBSDKCoreKit.framework in Frameworks */,
+				3FB211651F8CBDD9005F8418 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
