@@ -22,6 +22,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
+        createWeightPicker()
         // Do any additional setup after loading the view.
     }
 
@@ -47,6 +48,21 @@ class RegisterViewController: UIViewController {
         
     }
     
+    func createWeightPicker() {
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        //done button for toolbar, action refers to method donePressed().
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedInput))
+        toolbar.setItems([done], animated: false)
+        
+        weightField.inputAccessoryView = toolbar
+        weightField.inputView = picker
+        
+        picker.datePickerMode = .date
+    }
+    
     @objc func donePressed(){
         //format date
         let formatter = DateFormatter()
@@ -57,6 +73,10 @@ class RegisterViewController: UIViewController {
         //put the picked date in the textfield (dateField)
         dateField.text = "\(dateString)"
         self.view.endEditing(true)
+    }
+    
+    @objc func donePressedInput(){
+        
     }
 
 }

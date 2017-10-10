@@ -13,6 +13,7 @@ import CoreData
 
 class ViewController: UIViewController{
 
+    @NSManaged var date: NSDate?
     @IBOutlet weak var userName: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,9 @@ class ViewController: UIViewController{
             })
         }
         
+        /*
         let user: User = NSEntityDescription.insertNewObject(forEntityName: "User", into: DatabaseController.persistentContainer.viewContext) as! User
-        user.dateOfBirth = "01/01/1996"
+        //user.dateOfBirth = dat;
         
         //save user in DB
         DatabaseController.saveContext()
@@ -49,7 +51,7 @@ class ViewController: UIViewController{
             print("Error: \(error)")
         }
         
-        
+        */
         
     }
     

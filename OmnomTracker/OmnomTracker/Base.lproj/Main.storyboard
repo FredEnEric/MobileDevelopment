@@ -85,7 +85,8 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="hMK-cW-Xi4" secondAttribute="trailing" constant="40" id="35B-VS-QxJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hMK-cW-Xi4" secondAttribute="trailing" id="35B-VS-QxJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hMK-cW-Xi4" secondAttribute="trailing" constant="30" id="Ear-7J-Xzd"/>
                             <constraint firstItem="a0Q-B4-kwo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="65" id="Ngt-tO-009"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="a0Q-B4-kwo" secondAttribute="bottom" constant="306" id="REy-ez-dHO"/>
                             <constraint firstItem="hMK-cW-Xi4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="39" id="RzE-Ww-FBl"/>
@@ -226,7 +227,7 @@
         <!--HomeView-->
         <scene sceneID="pn3-BL-ATN">
             <objects>
-                <viewController title="HomeView" id="W6C-S9-XbJ" sceneMemberID="viewController">
+                <viewController title="HomeView" id="W6C-S9-XbJ" customClass="HomeViewController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fTj-32-bF4"/>
                         <viewControllerLayoutGuide type="bottom" id="ZBC-Rt-UmL"/>
@@ -244,7 +245,7 @@
         <!--SearchMealView-->
         <scene sceneID="dpr-Ve-c5Z">
             <objects>
-                <viewController title="SearchMealView" id="EOE-Np-nto" sceneMemberID="viewController">
+                <viewController title="SearchMealView" id="EOE-Np-nto" customClass="SearchViewController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GQv-ZH-YJ4"/>
                         <viewControllerLayoutGuide type="bottom" id="Fhc-Td-2Qy"/>
@@ -257,12 +258,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QzS-ZP-pav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2633" y="79"/>
+            <point key="canvasLocation" x="2367" y="79"/>
         </scene>
         <!--LogMealView-->
         <scene sceneID="Kka-KG-IZn">
             <objects>
-                <viewController title="LogMealView" id="ywI-qW-63e" sceneMemberID="viewController">
+                <viewController title="LogMealView" id="ywI-qW-63e" customClass="SearchViewController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lZp-qd-8fb"/>
                         <viewControllerLayoutGuide type="bottom" id="pR4-y0-76Y"/>
@@ -280,7 +281,7 @@
         <!--ProfileView-->
         <scene sceneID="1ij-hR-Q8A">
             <objects>
-                <viewController title="ProfileView" id="rTn-Ly-6oy" sceneMemberID="viewController">
+                <viewController title="ProfileView" id="rTn-Ly-6oy" customClass="ProfileViewController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ou1-fW-eN8"/>
                         <viewControllerLayoutGuide type="bottom" id="ROc-bV-6Ep"/>
@@ -293,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1L-Qe-PQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4158" y="79"/>
+            <point key="canvasLocation" x="4322" y="78"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AT6-17-tOP">

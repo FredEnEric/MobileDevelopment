@@ -11,6 +11,10 @@
 		3F6401281F836E5A003038C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6401261F836E5A003038C2 /* Main.storyboard */; };
 		3F64012A1F836E5B003038C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F6401291F836E5B003038C2 /* Assets.xcassets */; };
 		3F64012D1F836E5B003038C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F64012B1F836E5B003038C2 /* LaunchScreen.storyboard */; };
+		564259181F8CC71F000C6F23 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564259171F8CC71F000C6F23 /* HomeViewController.swift */; };
+		5642591A1F8CC75C000C6F23 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564259191F8CC75C000C6F23 /* SearchViewController.swift */; };
+		5642591C1F8CC786000C6F23 /* LogMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5642591B1F8CC786000C6F23 /* LogMealViewController.swift */; };
+		5642591E1F8CC7B9000C6F23 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */; };
 		567FE2981F854062004DDB84 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567FE2961F854062004DDB84 /* FBSDKCoreKit.framework */; };
 		567FE2991F854062004DDB84 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567FE2971F854062004DDB84 /* FBSDKLoginKit.framework */; };
 		567FE29B1F854093004DDB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FE29A1F854093004DDB84 /* AppDelegate.swift */; };
@@ -27,6 +31,10 @@
 		3F6401291F836E5B003038C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F64012C1F836E5B003038C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F64012E1F836E5B003038C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		564259171F8CC71F000C6F23 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		564259191F8CC75C000C6F23 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		5642591B1F8CC786000C6F23 /* LogMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMealViewController.swift; sourceTree = "<group>"; };
+		5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		567FE2961F854062004DDB84 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		567FE2971F854062004DDB84 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		567FE29A1F854093004DDB84 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,8 +90,8 @@
 		3F6401211F836E5A003038C2 /* OmnomTracker */ = {
 			isa = PBXGroup;
 			children = (
+				564259151F8CC5E4000C6F23 /* Controllers */,
 				567FE29A1F854093004DDB84 /* AppDelegate.swift */,
-				3F6401241F836E5A003038C2 /* ViewController.swift */,
 				3F6401261F836E5A003038C2 /* Main.storyboard */,
 				3F6401291F836E5B003038C2 /* Assets.xcassets */,
 				3F64012B1F836E5B003038C2 /* LaunchScreen.storyboard */,
@@ -91,11 +99,23 @@
 				56F8D1161F853D73006CD33C /* OmnomTracker-Bridging-Header.h */,
 				567FE2961F854062004DDB84 /* FBSDKCoreKit.framework */,
 				567FE2971F854062004DDB84 /* FBSDKLoginKit.framework */,
-				56A94AAD1F8A72FE00B54B47 /* RegisterViewController.swift */,
 				56A94AB21F8A925100B54B47 /* OmnomDB.xcdatamodeld */,
-				56A94AD61F8A93B200B54B47 /* DatabaseController.swift */,
 			);
 			path = OmnomTracker;
+			sourceTree = "<group>";
+		};
+		564259151F8CC5E4000C6F23 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F6401241F836E5A003038C2 /* ViewController.swift */,
+				56A94AAD1F8A72FE00B54B47 /* RegisterViewController.swift */,
+				56A94AD61F8A93B200B54B47 /* DatabaseController.swift */,
+				564259171F8CC71F000C6F23 /* HomeViewController.swift */,
+				564259191F8CC75C000C6F23 /* SearchViewController.swift */,
+				5642591B1F8CC786000C6F23 /* LogMealViewController.swift */,
+				5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		7A5FA51DB7C3788F843B2FEE /* Pods */ = {
@@ -253,10 +273,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				56A94AD71F8A93B200B54B47 /* DatabaseController.swift in Sources */,
+				5642591A1F8CC75C000C6F23 /* SearchViewController.swift in Sources */,
 				56A94AB41F8A925100B54B47 /* OmnomDB.xcdatamodeld in Sources */,
 				56A94AAE1F8A72FE00B54B47 /* RegisterViewController.swift in Sources */,
 				567FE29B1F854093004DDB84 /* AppDelegate.swift in Sources */,
 				3F6401251F836E5A003038C2 /* ViewController.swift in Sources */,
+				5642591E1F8CC7B9000C6F23 /* ProfileViewController.swift in Sources */,
+				5642591C1F8CC786000C6F23 /* LogMealViewController.swift in Sources */,
+				564259181F8CC71F000C6F23 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
