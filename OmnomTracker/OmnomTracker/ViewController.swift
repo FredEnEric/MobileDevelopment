@@ -15,8 +15,15 @@ class ViewController: UIViewController{
 
     @NSManaged var date: NSDate?
     @IBOutlet weak var userName: UITextField!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let loginButton = LoginButton(readPermissions: [ .publicProfile ])
         loginButton.center = view.center
         
@@ -62,6 +69,11 @@ class ViewController: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
 
 

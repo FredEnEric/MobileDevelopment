@@ -21,9 +21,10 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createDatePicker()
-        createWeightPicker()
+        //createDatePicker()
+        //createWeightPicker()
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
