@@ -16,6 +16,9 @@ class ViewController: UIViewController{
     @NSManaged var date: NSDate?
     @IBOutlet weak var userName: UITextField!
     
+    var gender = String()
+    var userId = Int()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
@@ -31,18 +34,17 @@ class ViewController: UIViewController{
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, gender"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     let fbDetails = result as! NSDictionary
+                    
+                    //let idD = fbDetails["id"]
+                    let genderD = fbDetails["gender"]
+                    //self.userId = idD as! Int
+                    self.gender = genderD as! String
+                    //self.gender = self.gender.uppercased()
                     print(fbDetails)
                 }
             })
         }
-        
         /*
-        let user: User = NSEntityDescription.insertNewObject(forEntityName: "User", into: DatabaseController.persistentContainer.viewContext) as! User
-        //user.dateOfBirth = dat;
-        
-        //save user in DB
-        DatabaseController.saveContext()
-        
         let fetchRequest:NSFetchRequest<User> = User.fetchRequest()
         
         //cleaner code (DatabaseController.getContext)
@@ -51,15 +53,13 @@ class ViewController: UIViewController{
             print("number of results: \(searchResult.count)")
             
             for result in searchResult as [User]{
-                    print("Date of Birth: \(String(describing: result.dateOfBirth))")
+                    print("Height: \(String(describing: result.height))")
             }
         }
         catch {
             print("Error: \(error)")
         }
-        
         */
-        
     }
     
     func fetchProfile(){
@@ -75,7 +75,11 @@ class ViewController: UIViewController{
         super.viewDidDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
     }
-
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let registerTableController = segue.destination as! RegisterTableController
+        registerTableController.genderString = gender
+    }
 }
+
 

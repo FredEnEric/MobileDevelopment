@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class RegisterTableController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    //passing data vars
+    var genderString = String()
     
     @IBOutlet weak var heightField: UITextField!
     @IBOutlet weak var weightField: UITextField!
@@ -25,12 +28,24 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     var calorieGoalPicker = UIPickerView()
     var weightgoalPicker = UIPickerView()
     
+    //var
+    var height = Float()
+    var weight = Float()
+    var calorieGoal = Int16()
+    var dateBirth = NSDate()
+    var gender = String()
+    var userId = NSInteger()
+    var weightGoal = Float()
+    
     //data
     var genderData = ["Female", "Male", "Other"]
     var heightData = [Int]()
     var weightData = [Int]()
     var weightGoaldData = [Int]()
     var calorieGoaldData = [Int]()
+    
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,12 +62,36 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
         craetePicker(field: weightField, picker: weightPicker)
         craetePicker(field: weightGoaldField, picker: weightgoalPicker)
         craetePicker(field: calorieGoaldField, picker: calorieGoalPicker)
+        
+        genderField.text = genderString
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    //als we op save klikken
+    override func viewDidDisappear(_ animated: Bool) {
+        putUserInDatabase()
+        super.viewDidDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    
+    func putUserInDatabase() {
+        let user: User = NSEntityDescription.insertNewObject(forEntityName: "User", into: DatabaseController.persistentContainer.viewContext) as! User
+        
+        user.height = height
+        user.weight = weight
+        user.calorieGoal = calorieGoal
+        //user.dateBirth = nil
+        user.gender = gender as String
+        user.userId = 1
+        user.weightGoal = weightGoal
+        
+        //save user in DB
+        DatabaseController.saveContext()
+    }
     
     func createDatePicker() {
         //toolbar
@@ -158,14 +197,19 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (pickerView == genderPicker){
             genderField.text = genderData[row]
+            gender = (genderData[row]) as String
         } else if(pickerView == heightPicker) {
             heightField.text = String(heightData[row]) + " cm"
+            height = Float(heightData[row])
         } else if(pickerView == weightPicker) {
             weightField.text = String(weightData[row]) + " kg"
+            weight = Float(weightData[row])
         } else if(pickerView == calorieGoalPicker) {
             calorieGoaldField.text = String(calorieGoaldData[row]) + " kcal"
+            calorieGoal = Int16(calorieGoaldData[row])
         } else if(pickerView == weightgoalPicker) {
             weightGoaldField.text = String(weightGoaldData[row]) + " kg"
+            weightGoal = Float(weightGoaldData[row])
         }
     }
     

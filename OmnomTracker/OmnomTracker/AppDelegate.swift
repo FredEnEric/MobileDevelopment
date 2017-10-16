@@ -20,6 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // Override point for customization after application launch.
+        
+        /*
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        print(urls[urls.count-1] as URL);
+        
+        sinasi: /Users/sinasiyilmaz/Library/Developer/CoreSimulator/Devices/75ADFD2C-4B0E-431D-A8E6-8B01685E9B33/data/Containers/Data/Application/4554B09D-42F2-404E-888B-AB73033C11E3/
+         */
         return true
     }
     
