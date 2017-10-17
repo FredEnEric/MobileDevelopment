@@ -71,14 +71,14 @@ class ViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
         self.navigationController?.navigationBar.isHidden = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let registerTableController = segue.destination as! RegisterTableController
-        registerTableController.genderString = gender
+        //let registerTableController = segue.destination as! RegisterViewController
+        //registerTableController.genderString = gender
     }
 }
 

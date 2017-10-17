@@ -21,12 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // Override point for customization after application launch.
         
-        /*
+        
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         print(urls[urls.count-1] as URL);
         
-        sinasi: /Users/sinasiyilmaz/Library/Developer/CoreSimulator/Devices/75ADFD2C-4B0E-431D-A8E6-8B01685E9B33/data/Containers/Data/Application/4554B09D-42F2-404E-888B-AB73033C11E3/
-         */
+        //sinasi: /Users/sinasiyilmaz/Library/Developer/CoreSimulator/Devices/75ADFD2C-4B0E-431D-A8E6-8B01685E9B33/data/Containers/Data/Application/4554B09D-42F2-404E-888B-AB73033C11E3/
+        // frederic: /Users/student/Library/Developer/CoreSimulator/Devices/8F7F6A22-9A79-412B-A6A6-9BA4CE1DD341/data/Containers/Data/Application/5F701644-A60E-48E3-BE8D-424DEEA9A1B4/
         return true
     }
     

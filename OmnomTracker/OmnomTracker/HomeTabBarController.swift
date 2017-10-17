@@ -22,14 +22,14 @@ class HomeTabBarController: UITabBarController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        //self.navigationItem.setHidesBackButton(true, animated: false)
         self.navigationItem.title = "Today"
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.navigationItem.setHidesBackButton(false, animated: false)
-    }
+    //override func viewDidDisappear(_ animated: Bool) {
+        //super.viewDidDisappear(animated)
+        //self.navigationItem.setHidesBackButton(false, animated: false)
+    //}
     
     /*
      // MARK: - Navigation
