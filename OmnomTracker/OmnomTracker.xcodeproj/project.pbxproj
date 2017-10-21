@@ -13,7 +13,7 @@
 		3F64012D1F836E5B003038C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F64012B1F836E5B003038C2 /* LaunchScreen.storyboard */; };
 		3FB211691F923EE7005F8418 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB211681F923EE7005F8418 /* HomeTabBarController.swift */; };
 		3FB2116B1F925413005F8418 /* RegisterTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2116A1F925413005F8418 /* RegisterTableController.swift */; };
-		5642591A1F8CC75C000C6F23 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564259191F8CC75C000C6F23 /* SearchViewController.swift */; };
+		3FB2116F1F9608A6005F8418 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2116E1F9608A6005F8418 /* SearchTableViewController.swift */; };
 		5642591C1F8CC786000C6F23 /* LogMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5642591B1F8CC786000C6F23 /* LogMealViewController.swift */; };
 		5642591E1F8CC7B9000C6F23 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */; };
 		567FE29B1F854093004DDB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FE29A1F854093004DDB84 /* AppDelegate.swift */; };
@@ -32,7 +32,7 @@
 		3F64012E1F836E5B003038C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FB211681F923EE7005F8418 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		3FB2116A1F925413005F8418 /* RegisterTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTableController.swift; sourceTree = "<group>"; };
-		564259191F8CC75C000C6F23 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3FB2116E1F9608A6005F8418 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		5642591B1F8CC786000C6F23 /* LogMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMealViewController.swift; sourceTree = "<group>"; };
 		5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		567FE2961F854062004DDB84 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 				3FB2116A1F925413005F8418 /* RegisterTableController.swift */,
 				3FB211681F923EE7005F8418 /* HomeTabBarController.swift */,
 				56A94AD61F8A93B200B54B47 /* DatabaseController.swift */,
-				564259191F8CC75C000C6F23 /* SearchViewController.swift */,
+				3FB2116E1F9608A6005F8418 /* SearchTableViewController.swift */,
 				5642591B1F8CC786000C6F23 /* LogMealViewController.swift */,
 				5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */,
 			);
@@ -272,13 +272,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				56A94AD71F8A93B200B54B47 /* DatabaseController.swift in Sources */,
-				5642591A1F8CC75C000C6F23 /* SearchViewController.swift in Sources */,
 				56A94AB41F8A925100B54B47 /* OmnomDB.xcdatamodeld in Sources */,
 				3FB2116B1F925413005F8418 /* RegisterTableController.swift in Sources */,
 				56A94AAE1F8A72FE00B54B47 /* RegisterViewController.swift in Sources */,
 				3FB211691F923EE7005F8418 /* HomeTabBarController.swift in Sources */,
 				567FE29B1F854093004DDB84 /* AppDelegate.swift in Sources */,
 				3F6401251F836E5A003038C2 /* ViewController.swift in Sources */,
+				3FB2116F1F9608A6005F8418 /* SearchTableViewController.swift in Sources */,
 				5642591E1F8CC7B9000C6F23 /* ProfileViewController.swift in Sources */,
 				5642591C1F8CC786000C6F23 /* LogMealViewController.swift in Sources */,
 			);
