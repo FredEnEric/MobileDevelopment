@@ -26,6 +26,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
+        
     }
 
     func updateSearchResults(for searchController: UISearchController) {
@@ -36,6 +37,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         // update view
         self.resultsController.tableView.reloadData()
     }
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,5 +58,21 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         }
         return cell
     }
- 
+    
+    // MARK: - Navigation
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var meal = ""
+        if tableView == self.tableView {
+           meal =  self.meals[indexPath.row]
+        } else {
+            meal =  self.filteredMeals[indexPath.row]
+        }
+        performSegue(withIdentifier: "logMealSegue", sender: meal)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let logMealViewController = segue.destination as! LogMealViewController
+        logMealViewController.mealName = sender as! String
+    }
 }

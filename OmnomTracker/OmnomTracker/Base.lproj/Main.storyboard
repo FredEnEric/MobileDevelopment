@@ -426,7 +426,11 @@
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="R7H-Ok-wce"/>
-                                    <barButtonItem systemItem="add" id="GI5-do-535"/>
+                                    <barButtonItem systemItem="add" id="GI5-do-535">
+                                        <connections>
+                                            <segue destination="g4O-eE-5ci" kind="show" id="SOb-wn-byI"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u1q-s6-CtX">
@@ -437,7 +441,11 @@
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ZoI-SR-s45"/>
-                                    <barButtonItem systemItem="add" id="9xO-ec-g1n"/>
+                                    <barButtonItem systemItem="add" id="9xO-ec-g1n">
+                                        <connections>
+                                            <segue destination="g4O-eE-5ci" kind="show" id="kXm-NQ-joo"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Hc-Ok-lia">
@@ -448,7 +456,11 @@
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="blF-hU-qOd"/>
-                                    <barButtonItem systemItem="add" id="oBg-N9-Sgi"/>
+                                    <barButtonItem systemItem="add" id="oBg-N9-Sgi">
+                                        <connections>
+                                            <segue destination="g4O-eE-5ci" kind="show" id="MJy-CJ-p3T"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lBJ-3J-tbH">
@@ -461,7 +473,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="AAc-NW-qDa"/>
                                     <barButtonItem systemItem="add" id="ABR-qV-sJC">
                                         <connections>
-                                            <segue destination="g4O-eE-5ci" kind="show" id="bU7-4Q-ZNG"/>
+                                            <segue destination="g4O-eE-5ci" kind="show" id="6mR-jy-sPU"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -549,6 +561,9 @@
                     <navigationItem key="navigationItem" title="Search meal" id="VqG-h4-hYs" userLabel="Search meal">
                         <barButtonItem key="backBarButtonItem" title="Back" id="j2U-U9-JAP"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="ywI-qW-63e" kind="show" identifier="logMealSegue" id="6ZZ-6K-KSF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NH1-jg-oKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -576,7 +591,7 @@
         <!--LogMealView-->
         <scene sceneID="Kka-KG-IZn">
             <objects>
-                <viewController title="LogMealView" id="ywI-qW-63e" customClass="SearchViewController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogMealViewController" title="LogMealView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ywI-qW-63e" customClass="LogMealViewController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lZp-qd-8fb"/>
                         <viewControllerLayoutGuide type="bottom" id="pR4-y0-76Y"/>
@@ -584,12 +599,24 @@
                     <view key="view" contentMode="scaleToFill" id="g4a-AY-UEi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfD-0h-7vE">
+                                <rect key="frame" x="53" y="108" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="mealNameLabel" destination="YfD-0h-7vE" id="ocM-P4-U9k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Okc-0M-Sx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2780" y="740"/>
+            <point key="canvasLocation" x="3628" y="55"/>
         </scene>
         <!--Profile-->
         <scene sceneID="1ij-hR-Q8A">
@@ -641,4 +668,7 @@
         <image name="icons8-home_filled" width="25" height="25"/>
         <image name="icons8-user_filled" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="kXm-NQ-joo"/>
+    </inferredMetricsTieBreakers>
 </document>
