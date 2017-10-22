@@ -22,6 +22,7 @@ class LogMealViewController: UIViewController {
     @IBOutlet weak var fatGramsLabel: UILabel!
 
     var mealName = "Omnomnom"
+    var mealId = "not set"
     
     var lunch = Int32()
     var foodRepo = FoodRepository()
