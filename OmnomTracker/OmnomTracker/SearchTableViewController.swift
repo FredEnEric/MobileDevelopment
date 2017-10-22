@@ -15,6 +15,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     var searchController : UISearchController!
     var resultsController = UITableViewController()
     
+    var lunch = Int32()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -71,8 +73,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         performSegue(withIdentifier: "logMealSegue", sender: meal)
     }
 
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let logMealViewController = segue.destination as! LogMealViewController
+        logMealViewController.lunch = Int32(Lunch.breakfast.rawValue)
         logMealViewController.mealName = sender as! String
     }
+    
+    
 }

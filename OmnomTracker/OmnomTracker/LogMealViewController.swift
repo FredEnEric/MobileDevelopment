@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LogMealViewController: UIViewController {
 
@@ -22,12 +23,45 @@ class LogMealViewController: UIViewController {
 
     var mealName = "Omnomnom"
     
+    var lunch = Int32()
+    var foodRepo = FoodRepository()
+    var foodModel = FoodModel()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         mealNameLabel.text = mealName
     }
+    
+    //als we op save klikken
+    override func viewDidDisappear(_ animated: Bool) {
+        putMealInDatabase()
+        super.viewDidDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    func putMealInDatabase() {
+        //let food: Food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: DatabaseController.persistentContainer.viewContext) as! Food
+        
+        foodModel.name = mealNameLabel.text!
+        /*
+        food.calories = Int32(caloriesLabel.text!)!
+        food.carbs = Float(carbGramsLabel.text!)!
+        food.protein = Float(proteinGramsLabel.text!)!
+        food.fat = Float(fatGramsLabel.text!)!
+        */
+        
+        //dit moet achteraf als frederic api werkend heeft gekregen vervangen worden door hierboven.
+        foodModel.calories = 10
+        foodModel.carbs = 10
+        foodModel.protein = 10
+        foodModel.fat = 10
+        foodModel.lunch = lunch
+        
+        //save food in repo
+        foodRepo.add(model: foodModel)
+    }
+    
 
 
 }
