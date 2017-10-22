@@ -21,6 +21,7 @@ class LogMealViewController: UIViewController {
     @IBOutlet weak var fatGramsLabel: UILabel!
 
     var mealName = "Omnomnom"
+    var mealId = "not set"
     
     override func viewDidLoad() {
         super.viewDidLoad()

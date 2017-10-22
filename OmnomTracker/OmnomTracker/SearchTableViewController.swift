@@ -10,9 +10,10 @@ import UIKit
 
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
 
-    var meals = ["Spaghetti", "yoghurt", "banaan", "chicken", "Frietjes"]
-    var filteredMeals = [String]()
-    var apiResult = [String]()
+    var meals = [String]()
+    var ids = [String]()
+    var selectedId = ""
+
     var searchController : UISearchController!
     var resultsController = UITableViewController()
     
@@ -32,9 +33,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         self.searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         
-        
-        
-        let url = URL(string: "\(self.baseURL)celery")
+    }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        // api call
+        let url = URL(string: "\(self.baseURL)\(self.searchController.searchBar.text!.lowercased())")
         var request = URLRequest(url: url!)
         request.setValue(self.xAppId, forHTTPHeaderField: "x-app-id")
         request.setValue(self.xAppKey, forHTTPHeaderField: "x-app-key")
@@ -45,14 +48,18 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             }else{
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as AnyObject
-                    if let commonMeals = json["common"] as? NSArray{
-                        for commonMeal in commonMeals {
-                            if let meal = commonMeal as? NSDictionary {
-                                let mealName = meal["food_name"] as! String
+                    if let meals = json["common"] as? NSArray{
+                        // add
+                        self.meals = [String]()
+                        self.ids = [String]()
+                        for meal in meals {
+                            if let mealDictionary = meal as? NSDictionary {
+                                let mealName = mealDictionary["food_name"] as! String
                                 self.meals.append(mealName)
+                                let mealId = mealDictionary["tag_id"] as! String
+                                self.ids.append(mealId)
                             }
                         }
-                        print(self.meals)
                         
                     }
                 }catch let error as NSError{
@@ -60,15 +67,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                 }
             }
         }).resume()
-    }
-
-    func updateSearchResults(for searchController: UISearchController) {
-        // filter
-        
-        self.filteredMeals = self.meals.filter{ (meal:String) -> Bool in
-            return meal.lowercased().contains(self.searchController.searchBar.text!.lowercased())
-        }
-
         
         // update view
         self.resultsController.tableView.reloadData()
@@ -77,38 +75,28 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == self.tableView {
-            return self.meals.count
-        }
-        return self.filteredMeals.count
+        return self.meals.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        
-        if tableView == self.tableView {
-            cell.textLabel?.text =  self.meals[indexPath.row]
-        } else {
-            cell.textLabel?.text =  self.filteredMeals[indexPath.row]
-        }
+        cell.textLabel?.text =  self.meals[indexPath.row]
         return cell
     }
     
     // MARK: - Navigation
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var meal = ""
-        if tableView == self.tableView {
-           meal =  self.meals[indexPath.row]
-        } else {
-            meal =  self.filteredMeals[indexPath.row]
-        }
+        let meal =  self.meals[indexPath.row]
+        self.selectedId = self.ids[indexPath.row]
         performSegue(withIdentifier: "logMealSegue", sender: meal)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let logMealViewController = segue.destination as! LogMealViewController
         logMealViewController.mealName = sender as! String
+        logMealViewController.mealId = self.selectedId
+        
     }
 }
