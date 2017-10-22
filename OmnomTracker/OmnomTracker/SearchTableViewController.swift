@@ -20,6 +20,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     var baseURL = "https://trackapi.nutritionix.com/v2/search/instant?query="
     var xAppId = "77087a10"
     var xAppKey = "e36cf96bcf70f79f039149a7711d1890"
+    var lunch = Int32()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,10 +94,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         performSegue(withIdentifier: "logMealSegue", sender: meal)
     }
 
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let logMealViewController = segue.destination as! LogMealViewController
+        logMealViewController.lunch = Int32(Lunch.breakfast.rawValue)
         logMealViewController.mealName = sender as! String
         logMealViewController.mealId = self.selectedId
         
     }
+    
+    
 }

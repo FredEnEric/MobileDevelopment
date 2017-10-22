@@ -16,6 +16,12 @@
 		3FB2116F1F9608A6005F8418 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2116E1F9608A6005F8418 /* SearchTableViewController.swift */; };
 		5642591C1F8CC786000C6F23 /* LogMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5642591B1F8CC786000C6F23 /* LogMealViewController.swift */; };
 		5642591E1F8CC7B9000C6F23 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */; };
+		566BF57E1F9CE43A00054F7E /* ViewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF57D1F9CE43A00054F7E /* ViewMealViewController.swift */; };
+		566BF5811F9CE74F00054F7E /* Lunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF5801F9CE74F00054F7E /* Lunch.swift */; };
+		566BF5841F9CEF7300054F7E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF5831F9CEF7300054F7E /* UserRepository.swift */; };
+		566BF5861F9CEF8200054F7E /* FoodRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF5851F9CEF8200054F7E /* FoodRepository.swift */; };
+		566BF5881F9CEFD000054F7E /* FoodRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF5871F9CEFD000054F7E /* FoodRepositoryProtocol.swift */; };
+		566BF58B1F9CF14100054F7E /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF58A1F9CF14100054F7E /* FoodModel.swift */; };
 		567FE29B1F854093004DDB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FE29A1F854093004DDB84 /* AppDelegate.swift */; };
 		56A94AAE1F8A72FE00B54B47 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A94AAD1F8A72FE00B54B47 /* RegisterViewController.swift */; };
 		56A94AB41F8A925100B54B47 /* OmnomDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56A94AB21F8A925100B54B47 /* OmnomDB.xcdatamodeld */; };
@@ -35,6 +41,12 @@
 		3FB2116E1F9608A6005F8418 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		5642591B1F8CC786000C6F23 /* LogMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMealViewController.swift; sourceTree = "<group>"; };
 		5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		566BF57D1F9CE43A00054F7E /* ViewMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMealViewController.swift; sourceTree = "<group>"; };
+		566BF5801F9CE74F00054F7E /* Lunch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lunch.swift; sourceTree = "<group>"; };
+		566BF5831F9CEF7300054F7E /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		566BF5851F9CEF8200054F7E /* FoodRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodRepository.swift; sourceTree = "<group>"; };
+		566BF5871F9CEFD000054F7E /* FoodRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodRepositoryProtocol.swift; sourceTree = "<group>"; };
+		566BF58A1F9CF14100054F7E /* FoodModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		567FE2961F854062004DDB84 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		567FE2971F854062004DDB84 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		567FE29A1F854093004DDB84 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +100,9 @@
 		3F6401211F836E5A003038C2 /* OmnomTracker */ = {
 			isa = PBXGroup;
 			children = (
+				566BF5891F9CF13200054F7E /* Models */,
+				566BF5821F9CEF6300054F7E /* Repositories */,
+				566BF57F1F9CE6FD00054F7E /* Enums */,
 				564259151F8CC5E4000C6F23 /* Controllers */,
 				567FE29A1F854093004DDB84 /* AppDelegate.swift */,
 				3F6401261F836E5A003038C2 /* Main.storyboard */,
@@ -113,8 +128,35 @@
 				3FB2116E1F9608A6005F8418 /* SearchTableViewController.swift */,
 				5642591B1F8CC786000C6F23 /* LogMealViewController.swift */,
 				5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */,
+				566BF57D1F9CE43A00054F7E /* ViewMealViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		566BF57F1F9CE6FD00054F7E /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				566BF5801F9CE74F00054F7E /* Lunch.swift */,
+			);
+			name = Enums;
+			sourceTree = "<group>";
+		};
+		566BF5821F9CEF6300054F7E /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				566BF5831F9CEF7300054F7E /* UserRepository.swift */,
+				566BF5851F9CEF8200054F7E /* FoodRepository.swift */,
+				566BF5871F9CEFD000054F7E /* FoodRepositoryProtocol.swift */,
+			);
+			name = Repositories;
+			sourceTree = "<group>";
+		};
+		566BF5891F9CF13200054F7E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				566BF58A1F9CF14100054F7E /* FoodModel.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		7A5FA51DB7C3788F843B2FEE /* Pods */ = {
@@ -271,16 +313,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				566BF5841F9CEF7300054F7E /* UserRepository.swift in Sources */,
 				56A94AD71F8A93B200B54B47 /* DatabaseController.swift in Sources */,
 				56A94AB41F8A925100B54B47 /* OmnomDB.xcdatamodeld in Sources */,
+				566BF5861F9CEF8200054F7E /* FoodRepository.swift in Sources */,
 				3FB2116B1F925413005F8418 /* RegisterTableController.swift in Sources */,
 				56A94AAE1F8A72FE00B54B47 /* RegisterViewController.swift in Sources */,
+				566BF5811F9CE74F00054F7E /* Lunch.swift in Sources */,
 				3FB211691F923EE7005F8418 /* HomeTabBarController.swift in Sources */,
 				567FE29B1F854093004DDB84 /* AppDelegate.swift in Sources */,
 				3F6401251F836E5A003038C2 /* ViewController.swift in Sources */,
+				566BF58B1F9CF14100054F7E /* FoodModel.swift in Sources */,
 				3FB2116F1F9608A6005F8418 /* SearchTableViewController.swift in Sources */,
 				5642591E1F8CC7B9000C6F23 /* ProfileViewController.swift in Sources */,
+				566BF5881F9CEFD000054F7E /* FoodRepositoryProtocol.swift in Sources */,
 				5642591C1F8CC786000C6F23 /* LogMealViewController.swift in Sources */,
+				566BF57E1F9CE43A00054F7E /* ViewMealViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
