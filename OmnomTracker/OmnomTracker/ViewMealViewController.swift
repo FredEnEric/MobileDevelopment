@@ -8,15 +8,33 @@
 
 import UIKit
 
-class ViewMealViewController: UIViewController {
-
+class ViewMealViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var foodRepo = FoodRepository()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    //table
+    var test = String()
+    var foodList = [Food]()
+    
+    @IBOutlet weak var mealTable: UITableView!
 
+
+    override func viewDidLoad() {
+      
+
+        super.viewDidLoad()
+        print(test)
+
+        mealTable.delegate = self
+        mealTable.dataSource = self
+        
         // Do any additional setup after loading the view.
+        foodList = foodRepo.getAll()
+        
+        
     }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -27,7 +45,13 @@ class ViewMealViewController: UIViewController {
         searchTableViewController.lunch = Int32(Lunch.breakfast.rawValue)
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return foodList.count
+    }
     
-    
-
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = mealTable.dequeueReusableCell(withIdentifier: "cell")!
+        cell.textLabel?.text = foodList[indexPath.row].name
+        return cell
+    }
 }

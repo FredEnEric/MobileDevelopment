@@ -30,4 +30,37 @@ class FoodRepository {
         DatabaseController.saveContext()
         print("ok")
     }
+    
+    func getAll() -> Array<Food>{
+        var foodList = [Food]()
+        
+        let fetchRequest:NSFetchRequest<Food> = Food.fetchRequest()
+        
+        do {
+            let foodResult = try DatabaseController.getContext().fetch(fetchRequest)
+            
+            for food in foodResult as [Food]{
+                foodList.append(food)
+            }
+        }
+        catch {
+            print("Error: \(error)")
+        }
+
+        return foodList
+        /*
+        do {
+            let searchResult = try DatabaseController.getContext().fetch(fetchRequest)
+            print("number of results: \(searchResult.count)")
+            
+            for result in searchResult as [User]{
+                print("Height: \(String(describing: result.height))")
+            }
+        }
+        catch {
+            print("Error: \(error)")
+        }
+         */
+
+    }
 }

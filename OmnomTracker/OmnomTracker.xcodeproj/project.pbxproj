@@ -26,6 +26,8 @@
 		56A94AAE1F8A72FE00B54B47 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A94AAD1F8A72FE00B54B47 /* RegisterViewController.swift */; };
 		56A94AB41F8A925100B54B47 /* OmnomDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56A94AB21F8A925100B54B47 /* OmnomDB.xcdatamodeld */; };
 		56A94AD71F8A93B200B54B47 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A94AD61F8A93B200B54B47 /* DatabaseController.swift */; };
+		56CDFCCA1F9D23A50081E0DC /* ExpandableHeaderViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CDFCC91F9D23A50081E0DC /* ExpandableHeaderViewDelegate.swift */; };
+		56CDFCCC1F9D24140081E0DC /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CDFCCB1F9D24140081E0DC /* ExpandableHeaderView.swift */; };
 		A5AFA41EBB8D76BE18F3D10F /* Pods_OmnomTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE75B4D538BE12B6C4A3AA3 /* Pods_OmnomTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		56A94AAD1F8A72FE00B54B47 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		56A94AB31F8A925100B54B47 /* OmnomDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OmnomDB.xcdatamodel; sourceTree = "<group>"; };
 		56A94AD61F8A93B200B54B47 /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
+		56CDFCC91F9D23A50081E0DC /* ExpandableHeaderViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderViewDelegate.swift; sourceTree = "<group>"; };
+		56CDFCCB1F9D24140081E0DC /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
 		56F8D1161F853D73006CD33C /* OmnomTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OmnomTracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		6BAD80E1EA9F518A6A23FEF3 /* Pods-OmnomTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnomTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnomTracker/Pods-OmnomTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		A2A65F25E9C61BBE9C6E94AF /* Pods-OmnomTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnomTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnomTracker/Pods-OmnomTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 		3F6401211F836E5A003038C2 /* OmnomTracker */ = {
 			isa = PBXGroup;
 			children = (
+				56CDFCC81F9D238F0081E0DC /* Helpers */,
 				566BF5891F9CF13200054F7E /* Models */,
 				566BF5821F9CEF6300054F7E /* Repositories */,
 				566BF57F1F9CE6FD00054F7E /* Enums */,
@@ -157,6 +162,15 @@
 				566BF58A1F9CF14100054F7E /* FoodModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		56CDFCC81F9D238F0081E0DC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				56CDFCC91F9D23A50081E0DC /* ExpandableHeaderViewDelegate.swift */,
+				56CDFCCB1F9D24140081E0DC /* ExpandableHeaderView.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		7A5FA51DB7C3788F843B2FEE /* Pods */ = {
@@ -314,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				566BF5841F9CEF7300054F7E /* UserRepository.swift in Sources */,
+				56CDFCCC1F9D24140081E0DC /* ExpandableHeaderView.swift in Sources */,
 				56A94AD71F8A93B200B54B47 /* DatabaseController.swift in Sources */,
 				56A94AB41F8A925100B54B47 /* OmnomDB.xcdatamodeld in Sources */,
 				566BF5861F9CEF8200054F7E /* FoodRepository.swift in Sources */,
@@ -322,6 +337,7 @@
 				566BF5811F9CE74F00054F7E /* Lunch.swift in Sources */,
 				3FB211691F923EE7005F8418 /* HomeTabBarController.swift in Sources */,
 				567FE29B1F854093004DDB84 /* AppDelegate.swift in Sources */,
+				56CDFCCA1F9D23A50081E0DC /* ExpandableHeaderViewDelegate.swift in Sources */,
 				3F6401251F836E5A003038C2 /* ViewController.swift in Sources */,
 				566BF58B1F9CF14100054F7E /* FoodModel.swift in Sources */,
 				3FB2116F1F9608A6005F8418 /* SearchTableViewController.swift in Sources */,
