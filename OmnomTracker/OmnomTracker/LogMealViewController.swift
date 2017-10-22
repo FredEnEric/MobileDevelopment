@@ -11,6 +11,14 @@ import UIKit
 class LogMealViewController: UIViewController {
 
     @IBOutlet weak var mealNameLabel: UILabel!
+    @IBOutlet weak var portionSizeField: UITextField!
+    @IBOutlet weak var caloriesLabel: UILabel!
+    @IBOutlet weak var carbProcentLabel: UILabel!
+    @IBOutlet weak var carbGramsLabel: UILabel!
+    @IBOutlet weak var proteinProcentLabel: UILabel!
+    @IBOutlet weak var proteinGramsLabel: UILabel!
+    @IBOutlet weak var fatProcentLabel: UILabel!
+    @IBOutlet weak var fatGramsLabel: UILabel!
 
     var mealName = "Omnomnom"
     
