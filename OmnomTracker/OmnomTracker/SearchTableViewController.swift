@@ -17,7 +17,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     var searchController : UISearchController!
     var resultsController = UITableViewController()
     
-    var baseURL = "https://trackapi.nutritionix.com/v2/search/instant?query="
+    var baseURL = "https://trackapi.nutritionix.com/v2/search/instant?branded=false&query="
     var xAppId = "77087a10"
     var xAppKey = "e36cf96bcf70f79f039149a7711d1890"
     var lunch = Int32()

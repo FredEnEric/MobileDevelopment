@@ -27,11 +27,74 @@ class LogMealViewController: UIViewController {
     var lunch = Int32()
     var foodRepo = FoodRepository()
     var foodModel = FoodModel()
+    var proteinId : Int32 = 203
+    var caloriesId : Int32 = 208
+    var fatId : Int32 = 204
+    var carbsId : Int32 = 205
+    
+    var baseURL = "https://trackapi.nutritionix.com/v2/search/instant?branded=false&detailed=true&query="
+    var xAppId = "77087a10"
+    var xAppKey = "e36cf96bcf70f79f039149a7711d1890"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         mealNameLabel.text = mealName
+        
+        let url = URL(string: "\(self.baseURL)\(self.mealName)")
+        var request = URLRequest(url: url!)
+        request.setValue(self.xAppId, forHTTPHeaderField: "x-app-id")
+        request.setValue(self.xAppKey, forHTTPHeaderField: "x-app-key")
+        URLSession.shared.dataTask(with: request, completionHandler: {
+            (data, response, error) in
+            if(error != nil){
+                print("error")
+            }else{
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as AnyObject
+                    if let meals = json["common"] as? NSArray{
+                        // add
+                        for meal in meals {
+                            if let mealDictionary = meal as? NSDictionary {
+                                let mealName = mealDictionary["food_name"] as! String
+                                let mealId = mealDictionary["tag_id"] as! String
+                                if mealName == self.mealName && mealId == self.mealId {
+                                    if let nutrients = mealDictionary["full_nutrients"] as? NSArray {
+                                        for nutrientObject in nutrients {
+                                            if let nutrient = nutrientObject as? NSDictionary {
+                                                let id = nutrient["attr_id"] as! Int32
+                                                switch id {
+                                                case self.carbsId:
+                                                    self.carbGramsLabel.text = "\(nutrient["value"] as! NSNumber) g"
+                                                case self.proteinId:
+                                                    self.proteinGramsLabel.text = "\(nutrient["value"] as! NSNumber) g"
+                                                case self.fatId:
+                                                    self.fatGramsLabel.text = "\(nutrient["value"] as! NSNumber) g"
+                                                case self.caloriesId:
+                                                    self.caloriesLabel.text = "\(nutrient["value"] as! NSNumber) kCal"
+                                                default:
+                                                    continue
+                                                }
+                                            }
+                                        }
+                                    }
+                                    break
+                                }
+                            }
+                        }
+                        
+                    }
+                }catch let error as NSError{
+                    print(error)
+                }
+            }
+        }).resume()
     }
     
     //als we op save klikken
@@ -57,7 +120,7 @@ class LogMealViewController: UIViewController {
         foodModel.carbs = 10
         foodModel.protein = 10
         foodModel.fat = 10
-        foodModel.lunch = lunch
+        //foodModel.lunch = lunch
         
         //save food in repo
         foodRepo.add(model: foodModel)
@@ -65,4 +128,5 @@ class LogMealViewController: UIViewController {
     
 
 
+    
 }
