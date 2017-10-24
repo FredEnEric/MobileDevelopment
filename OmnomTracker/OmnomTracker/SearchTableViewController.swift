@@ -37,7 +37,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
     func updateSearchResults(for searchController: UISearchController) {
         // api call
-        let url = URL(string: "\(self.baseURL)\(self.searchController.searchBar.text!.lowercased())")
+        let searchText = self.searchController.searchBar.text!.lowercased().replacingOccurrences(of: " ", with: "%20")
+        let url = URL(string: "\(self.baseURL)\(searchText)")
         var request = URLRequest(url: url!)
         request.setValue(self.xAppId, forHTTPHeaderField: "x-app-id")
         request.setValue(self.xAppKey, forHTTPHeaderField: "x-app-key")

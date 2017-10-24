@@ -14,11 +14,10 @@ class LogMealViewController: UIViewController {
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var portionSizeField: UITextField!
     @IBOutlet weak var caloriesLabel: UILabel!
-    @IBOutlet weak var carbProcentLabel: UILabel!
+    @IBOutlet weak var caloriesProcentLabel: UILabel!
     @IBOutlet weak var carbGramsLabel: UILabel!
-    @IBOutlet weak var proteinProcentLabel: UILabel!
     @IBOutlet weak var proteinGramsLabel: UILabel!
-    @IBOutlet weak var fatProcentLabel: UILabel!
+    
     @IBOutlet weak var fatGramsLabel: UILabel!
 
     var mealName = "Omnomnom"
@@ -47,7 +46,8 @@ class LogMealViewController: UIViewController {
         super.viewWillAppear(animated)
         mealNameLabel.text = mealName
         
-        let url = URL(string: "\(self.baseURL)\(self.mealName)")
+        let searchText = self.mealName.replacingOccurrences(of: " ", with: "%20")
+        let url = URL(string: "\(self.baseURL)\(searchText)")
         var request = URLRequest(url: url!)
         request.setValue(self.xAppId, forHTTPHeaderField: "x-app-id")
         request.setValue(self.xAppKey, forHTTPHeaderField: "x-app-key")
@@ -62,7 +62,7 @@ class LogMealViewController: UIViewController {
                         // add
                         for meal in meals {
                             if let mealDictionary = meal as? NSDictionary {
-                                let mealName = mealDictionary["food_name"] as! String
+                                let mealName : String = mealDictionary["food_name"] as! String
                                 let mealId = mealDictionary["tag_id"] as! String
                                 if mealName == self.mealName && mealId == self.mealId {
                                     if let nutrients = mealDictionary["full_nutrients"] as? NSArray {
