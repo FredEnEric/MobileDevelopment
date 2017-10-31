@@ -14,6 +14,9 @@
 		3FB211691F923EE7005F8418 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB211681F923EE7005F8418 /* HomeTabBarController.swift */; };
 		3FB2116B1F925413005F8418 /* RegisterTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2116A1F925413005F8418 /* RegisterTableController.swift */; };
 		3FB2116F1F9608A6005F8418 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2116E1F9608A6005F8418 /* SearchTableViewController.swift */; };
+		3FCEFFEE1F9F2BE700E1FBD3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCEFFED1F9F2BE700E1FBD3 /* Alamofire.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		3FCEFFF01F9F2FC900E1FBD3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCEFFEF1F9F2FC900E1FBD3 /* SwiftyJSON.framework */; };
+		3FCEFFF21FA88E9B00E1FBD3 /* LogMealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCEFFF11FA88E9B00E1FBD3 /* LogMealTableViewController.swift */; };
 		5642591C1F8CC786000C6F23 /* LogMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5642591B1F8CC786000C6F23 /* LogMealViewController.swift */; };
 		5642591E1F8CC7B9000C6F23 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */; };
 		566BF57E1F9CE43A00054F7E /* ViewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF57D1F9CE43A00054F7E /* ViewMealViewController.swift */; };
@@ -41,6 +44,9 @@
 		3FB211681F923EE7005F8418 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		3FB2116A1F925413005F8418 /* RegisterTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTableController.swift; sourceTree = "<group>"; };
 		3FB2116E1F9608A6005F8418 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		3FCEFFED1F9F2BE700E1FBD3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/OmnomTracker-axwxdfxxucfidoffriryypdqmnyl/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		3FCEFFEF1F9F2FC900E1FBD3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../Library/Developer/Xcode/DerivedData/OmnomTracker-axwxdfxxucfidoffriryypdqmnyl/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		3FCEFFF11FA88E9B00E1FBD3 /* LogMealTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMealTableViewController.swift; sourceTree = "<group>"; };
 		5642591B1F8CC786000C6F23 /* LogMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMealViewController.swift; sourceTree = "<group>"; };
 		5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		566BF57D1F9CE43A00054F7E /* ViewMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMealViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +75,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5AFA41EBB8D76BE18F3D10F /* Pods_OmnomTracker.framework in Frameworks */,
+				3FCEFFEE1F9F2BE700E1FBD3 /* Alamofire.framework in Frameworks */,
+				3FCEFFF01F9F2FC900E1FBD3 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +86,8 @@
 		0D07E7FE7C9F8F5C250FB315 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3FCEFFEF1F9F2FC900E1FBD3 /* SwiftyJSON.framework */,
+				3FCEFFED1F9F2BE700E1FBD3 /* Alamofire.framework */,
 				DFE75B4D538BE12B6C4A3AA3 /* Pods_OmnomTracker.framework */,
 			);
 			name = Frameworks;
@@ -132,6 +142,7 @@
 				56A94AD61F8A93B200B54B47 /* DatabaseController.swift */,
 				3FB2116E1F9608A6005F8418 /* SearchTableViewController.swift */,
 				5642591B1F8CC786000C6F23 /* LogMealViewController.swift */,
+				3FCEFFF11FA88E9B00E1FBD3 /* LogMealTableViewController.swift */,
 				5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */,
 				566BF57D1F9CE43A00054F7E /* ViewMealViewController.swift */,
 			);
@@ -261,6 +272,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OmnomTracker/Pods-OmnomTracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -268,9 +280,11 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
@@ -278,6 +292,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -334,6 +349,7 @@
 				566BF5861F9CEF8200054F7E /* FoodRepository.swift in Sources */,
 				3FB2116B1F925413005F8418 /* RegisterTableController.swift in Sources */,
 				56A94AAE1F8A72FE00B54B47 /* RegisterViewController.swift in Sources */,
+				3FCEFFF21FA88E9B00E1FBD3 /* LogMealTableViewController.swift in Sources */,
 				566BF5811F9CE74F00054F7E /* Lunch.swift in Sources */,
 				3FB211691F923EE7005F8418 /* HomeTabBarController.swift in Sources */,
 				567FE29B1F854093004DDB84 /* AppDelegate.swift in Sources */,

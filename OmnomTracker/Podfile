@@ -1,3 +1,4 @@
+source 'https://github.com/CocoaPods/Specs.git'
 # Uncomment the next line to define a global platform for your project
 # platform :ios, ’10.0’
 
@@ -9,4 +10,7 @@ target 'OmnomTracker' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'Alamofire', '~> 4.5'
+  pod 'SwiftyJSON'
+
 end

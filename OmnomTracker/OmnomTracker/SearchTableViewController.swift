@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
 
@@ -18,8 +19,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     var resultsController = UITableViewController()
     
     var baseURL = "https://trackapi.nutritionix.com/v2/search/instant?branded=false&query="
-    var xAppId = "77087a10"
-    var xAppKey = "e36cf96bcf70f79f039149a7711d1890"
+    let headers: HTTPHeaders = [
+        "x-app-id": "77087a10",
+        "x-app-key": "e36cf96bcf70f79f039149a7711d1890"
+    ]
     var lunch = Int32()
     
     override func viewDidLoad() {
@@ -34,43 +37,42 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         self.searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
     }
-
+    
     func updateSearchResults(for searchController: UISearchController) {
         // api call
         let searchText = self.searchController.searchBar.text!.lowercased().replacingOccurrences(of: " ", with: "%20")
-        let url = URL(string: "\(self.baseURL)\(searchText)")
-        var request = URLRequest(url: url!)
-        request.setValue(self.xAppId, forHTTPHeaderField: "x-app-id")
-        request.setValue(self.xAppKey, forHTTPHeaderField: "x-app-key")
-        URLSession.shared.dataTask(with: request, completionHandler: {
-            (data, response, error) in
-            if(error != nil){
-                print("error")
-            }else{
-                do{
-                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as AnyObject
-                    if let meals = json["common"] as? NSArray{
-                        // add
-                        self.meals = [String]()
-                        self.ids = [String]()
-                        for meal in meals {
-                            if let mealDictionary = meal as? NSDictionary {
-                                let mealName = mealDictionary["food_name"] as! String
-                                self.meals.append(mealName)
-                                let mealId = mealDictionary["tag_id"] as! String
-                                self.ids.append(mealId)
-                            }
-                        }
-                        
-                    }
-                }catch let error as NSError{
-                    print(error)
-                }
-            }
-        }).resume()
+        let url = "\(self.baseURL)\(searchText)"
+        self.getDataFromApi(url: url )
         
         // update view
         self.resultsController.tableView.reloadData()
+    }
+    
+    private func getDataFromApi(url: String) -> () {
+        let searchText = self.searchController.searchBar.text!.lowercased().replacingOccurrences(of: " ", with: "%20")
+        let url = "\(self.baseURL)\(searchText)"
+        Alamofire.request(url, headers: self.headers).responseJSON { response in
+            if let data = response.result.value {
+                self.storeData(apiResponse: data as AnyObject)
+            }
+        }
+        
+    }
+    
+    private func storeData(apiResponse: AnyObject) {
+        if let meals = apiResponse["common"] as? NSArray{
+            self.meals = [String]()
+            self.ids = [String]()
+            for meal in meals {
+                if let mealDictionary = meal as? NSDictionary {
+                    let mealName = mealDictionary["food_name"] as! String
+                    self.meals.append(mealName)
+                    let mealId = mealDictionary["tag_id"] as! String
+                    self.ids.append(mealId)
+                }
+            }
+            
+        }
     }
     
     // MARK: - Table view data source
@@ -82,7 +84,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text =  self.meals[indexPath.row]
+        cell.textLabel?.text =  self.meals[indexPath.row].capitalized
         return cell
     }
     
@@ -97,7 +99,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let logMealViewController = segue.destination as! LogMealViewController
-        let viewMealViewController = segue.destination as! ViewMealViewController
         logMealViewController.lunch = Int32(Lunch.breakfast.rawValue)
         logMealViewController.mealName = sender as! String
         logMealViewController.mealId = self.selectedId
