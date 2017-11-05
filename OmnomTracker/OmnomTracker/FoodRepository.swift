@@ -63,4 +63,26 @@ class FoodRepository {
          */
 
     }
+    
+    func getFoodTitle(foodtype: Int32) -> Array<String> {
+        var foodList = [String]()
+        
+        let fetchRequest:NSFetchRequest<Food> = Food.fetchRequest()
+        
+        do {
+            let foodResult = try DatabaseController.getContext().fetch(fetchRequest)
+            
+            for food in foodResult as [Food]{
+                if(food.name?.isEmpty == false && food.lunch == foodtype){
+                    foodList.append(food.name!)
+                }
+                
+            }
+        }
+        catch {
+            print("Error: \(error)")
+        }
+        
+        return foodList
+    }
 }

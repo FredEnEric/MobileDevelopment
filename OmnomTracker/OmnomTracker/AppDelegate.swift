@@ -25,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         print(urls[urls.count-1] as URL);
         
-        //sinasi: /Users/sinasiyilmaz/Library/Developer/CoreSimulator/Devices/75ADFD2C-4B0E-431D-A8E6-8B01685E9B33/data/Containers/Data/Application/4554B09D-42F2-404E-888B-AB73033C11E3/
+        //sqlite file:
+        //sinasi: Users/sinasiyilmaz/Library/Developer/CoreSimulator/Devices/1A5AE22D-AB0D-4678-8DCD-09A8F3CC76AB/data/Containers/Data/Application/DA9BC3C2-8ECC-4091-91CE-F07040229EF8/
         // frederic: /Users/student/Library/Developer/CoreSimulator/Devices/8F7F6A22-9A79-412B-A6A6-9BA4CE1DD341/data/Containers/Data/Application/5F701644-A60E-48E3-BE8D-424DEEA9A1B4/
         return true
     }

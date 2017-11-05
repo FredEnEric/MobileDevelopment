@@ -20,6 +20,7 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     @IBOutlet weak var weightGoaldField: UITextField!
     @IBOutlet weak var calorieGoaldField: UITextField!
     
+    @IBOutlet weak var messageLabel: UILabel!
     //pickers
     let picker = UIDatePicker()
     var genderPicker = UIPickerView()
@@ -75,9 +76,15 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     
     //als we op save klikken
     override func viewDidDisappear(_ animated: Bool) {
-        putUserInDatabase()
-        super.viewDidDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        if(validation()) {
+            putUserInDatabase()
+            super.viewDidDisappear(animated)
+            self.navigationController?.navigationBar.isHidden = false
+        }
+        else {
+            messageLabel.text = "Gelieve alle velden in te vullen."
+        }
+        
     }
     
     
@@ -230,5 +237,14 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
         } else {
             return ""
         }
+    }
+    
+    func validation() -> Bool {
+        
+        if(height == 0 && weight != 0 && calorieGoal != 0 && gender != "" && weightGoal != 0) {
+            return true
+        }
+        return false
+        
     }
 }
