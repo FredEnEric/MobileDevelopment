@@ -241,7 +241,7 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     
     func validation() -> Bool {
         
-        if(height == 0 && weight != 0 && calorieGoal != 0 && gender != "" && weightGoal != 0) {
+        if(height == 0 || weight != 0 || calorieGoal != 0 || gender != "" || weightGoal != 0) {
             return true
         }
         return false

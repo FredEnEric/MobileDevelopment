@@ -14,12 +14,14 @@ class HomeTabBarController: UITabBarController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        /*
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.title = "Today"
         self.navigationItem.backBarButtonItem = UIBarButtonItem()
         self.navigationItem.backBarButtonItem?.title = "Cancel"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem()
         self.navigationItem.rightBarButtonItem?.title = "Log Weight"
+ */
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,7 +31,7 @@ class HomeTabBarController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        //self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
     /*

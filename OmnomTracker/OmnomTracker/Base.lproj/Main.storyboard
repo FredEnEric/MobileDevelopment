@@ -506,7 +506,7 @@
                     <tabBarItem key="tabBarItem" tag="1" title="Today" image="icons8-home_filled" id="P6z-YX-leM"/>
                     <navigationItem key="navigationItem" title="Today" id="WMe-er-AYk">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="HF1-vI-vjC"/>
-                        <barButtonItem key="rightBarButtonItem" title="Log Weight" id="8Hb-7D-YgT"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Hb-7D-YgT"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="x2D-sZ-VVu" id="wTB-aZ-BNU"/>
@@ -853,7 +853,6 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="90J-Qu-xdV"/>
-                        <segue destination="QcR-jb-TtP" kind="show" id="3vC-aH-HHF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqJ-I1-8Uz" userLabel="First Responder" sceneMemberID="firstResponder"/>

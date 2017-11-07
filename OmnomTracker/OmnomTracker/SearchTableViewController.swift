@@ -99,7 +99,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let logMealViewController = segue.destination as! LogMealViewController
-        logMealViewController.lunch = Int32(Lunch.breakfast.rawValue)
         logMealViewController.mealName = sender as! String
         logMealViewController.mealId = self.selectedId
     }

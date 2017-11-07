@@ -25,12 +25,13 @@ class LogMealViewController: UIViewController {
     let caloriesId : Int32 = 208
     let fatId : Int32 = 204
     let carbsId : Int32 = 205
+    let mealTimes = ["Breakfast", "Lunch", "Dinner", "Snack", "Drink"]
+    let mealTimePicker = UIPickerView()
+    let foodRepo = FoodRepository()
+    let foodModel = FoodModel()
     
     var mealName = "Omnomnom"
-    var mealId = "not set"
-    var lunch = Int32()
-    var foodRepo = FoodRepository()
-    var foodModel = FoodModel()
+    var mealId = "not set" 
     
     let baseURL = "https://trackapi.nutritionix.com/v2/search/instant?branded=false&detailed=true&query="
     let headers: HTTPHeaders = [
@@ -43,7 +44,7 @@ class LogMealViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         self.getDataFromApi()
-        
+        createMealTimePicker()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +85,7 @@ class LogMealViewController: UIViewController {
     
     private func updateUI(data: NSDictionary) {
         if let servingSize = data["serving_weight_grams"] as? Double {
-            self.portionSizeLabel.text = String(format:"%.2f g", servingSize)
+            portionSizeLabel.text = String(format:"%.2f g", servingSize)
         }
         
         
@@ -92,46 +93,76 @@ class LogMealViewController: UIViewController {
             for nutrientObject in nutrients {
                 if let nutrient = nutrientObject as? NSDictionary {
                     let id = nutrient["attr_id"] as! Int32
-                    let value = String(format:"%.2f", nutrient["value"] as! Double)
+                    let value = nutrient["value"] as! Float
+                    let valueString = String(format:"%.2f", value)
                     switch id {
-                    case self.carbsId:
-                        self.carbsLabel.text = "\(value) g"
-                    case self.proteinId:
-                        self.proteinsLabel.text = "\(value) g"
-                    case self.fatId:
-                        self.fatsLabel.text = "\(value) g"
-                    case self.caloriesId:
-                        self.caloriesLabel.text = "\(value) kCal"
+                    case carbsId:
+                        foodModel.carbs = value
+                        carbsLabel.text = "\(valueString) g"
+                    case proteinId:
+                        foodModel.protein = value
+                        proteinsLabel.text = "\(valueString) g"
+                    case fatId:
+                        foodModel.fat = value
+                        fatsLabel.text = "\(valueString) g"
+                    case caloriesId:
+                        foodModel.calories = Int32(value)
+                        caloriesLabel.text = "\(valueString) kCal"
                     default:
                         continue
                     }
                 }
             }
-            
         }
+    }
+    
+    func createMealTimePicker() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
         
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressing))
+        toolbar.setItems([done], animated: false)
+        mealTimeField.inputAccessoryView = toolbar
+        
+        //mealTimePicker.delegate = self
+        //mealTimePicker.dataSource = self
+        
+        mealTimeField.inputView = mealTimePicker
+    }
+    
+    
+    @objc func donePressing(){
+        self.view.endEditing(true)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return mealTimes.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        mealTimeField.text = mealTimes[row]
+        foodModel.lunch = Int32(row)
     }
     
     func putMealInDatabase() {
         //let food: Food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: DatabaseController.persistentContainer.viewContext) as! Food
         
-        foodModel.name = mealNameLabel.text!
-        /*
-         food.calories = Int32(caloriesLabel.text!)!
-         food.carbs = Float(carbGramsLabel.text!)!
-         food.protein = Float(proteinGramsLabel.text!)!
-         food.fat = Float(fatGramsLabel.text!)!
-         */
-        
+        foodModel.name = mealName.capitalized
+       
         //dit moet achteraf als frederic api werkend heeft gekregen vervangen worden door hierboven.
-        foodModel.calories = 10
-        foodModel.carbs = 10
-        foodModel.protein = 10
-        foodModel.fat = 10
+        foodModel.date = Date() as NSDate
         //foodModel.lunch = lunch
         
         //save food in repo
         foodRepo.add(model: foodModel)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return mealTimes[row]
     }
     
 }

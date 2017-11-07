@@ -23,5 +23,7 @@ extension User {
     @NSManaged public var weight: Float
     @NSManaged public var weightGoal: Float
     @NSManaged public var dateBirth: NSDate
+    @NSManaged public var firstName: String?
+    @NSManaged public var profilePicUrl: String?
 
 }

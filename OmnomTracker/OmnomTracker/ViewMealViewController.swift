@@ -45,17 +45,18 @@ class ViewMealViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        /*
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.title = "Today"
         self.navigationItem.backBarButtonItem = UIBarButtonItem()
         self.navigationItem.backBarButtonItem?.title = "Cancel"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem()
         self.navigationItem.rightBarButtonItem?.title = "Log Weight"
-    }
+ */}
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.navigationItem.setHidesBackButton(false, animated: false)
+        //self.navigationItem.setHidesBackButton(false, animated: false)
     }
     
     override func didReceiveMemoryWarning() {
