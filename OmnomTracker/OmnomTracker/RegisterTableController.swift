@@ -234,6 +234,7 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
         }
     }
     
+    /*
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "registrationFinishedSegue" {
             let isValid = self.isValid()
@@ -250,7 +251,7 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
         // by default, transition
         return true
     }
-    
+    */
     func isValid() -> Bool {
         
         if(height != 0 && weight != 0 && calorieGoal != 0 && !gender.isEmpty && weightGoal != 0) {

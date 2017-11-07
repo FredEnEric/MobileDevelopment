@@ -19,5 +19,5 @@ class FoodModel {
     var portions: Int16 = 0
     var protein: Float = 0.0
     var lunch: Int32 = 0
-
+    var profilePicUrl: String?
 }
