@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Alamofire
 
-class LogMealViewController: UIViewController {
+class LogMealViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var portionSizeLabel: UILabel!
@@ -61,6 +61,9 @@ class LogMealViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
+    
+    //MARK: - Fetch data from api
+    
     private func getDataFromApi() {
         let url = "\(self.baseURL)\(self.mealName.replacingOccurrences(of: " ", with: "%20"))"
         Alamofire.request(url, headers: self.headers).responseJSON { response in
@@ -82,6 +85,9 @@ class LogMealViewController: UIViewController {
         }
         
     }
+    
+    
+    //MARK: - UpdateUI
     
     private func updateUI(data: NSDictionary) {
         if let servingSize = data["serving_weight_grams"] as? Double {
@@ -116,6 +122,9 @@ class LogMealViewController: UIViewController {
         }
     }
     
+    
+    //MARK: - Picker
+    
     func createMealTimePicker() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -124,8 +133,8 @@ class LogMealViewController: UIViewController {
         toolbar.setItems([done], animated: false)
         mealTimeField.inputAccessoryView = toolbar
         
-        //mealTimePicker.delegate = self
-        //mealTimePicker.dataSource = self
+        mealTimePicker.delegate = self
+        mealTimePicker.dataSource = self
         
         mealTimeField.inputView = mealTimePicker
     }
@@ -148,25 +157,48 @@ class LogMealViewController: UIViewController {
         foodModel.lunch = Int32(row)
     }
     
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return mealTimes[row]
+    }
+    
+    
+    //MARK: - Store data
+    
     func putMealInDatabase() {
-        //let food: Food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: DatabaseController.persistentContainer.viewContext) as! Food
-        
+   
         foodModel.name = mealName.capitalized
-       
-        //dit moet achteraf als frederic api werkend heeft gekregen vervangen worden door hierboven.
         foodModel.date = Date() as NSDate
-        //foodModel.lunch = lunch
         
         //save food in repo
         foodRepo.add(model: foodModel)
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return mealTimes[row]
+    
+    // MARK: - Navigation
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "logMealFinishedSegue" {
+            if ((mealTimeField.text?.isEmpty)! || (amountOfPortionsField.text?.isEmpty)!) {
+                let alert = UIAlertView()
+                alert.title = "Invalid form"
+                alert.message = "Please enter all fields"
+                alert.addButton(withTitle: "Ok")
+                alert.show()
+                return false
+            }
+            else {
+                return true
+            }
+        }
+        
+        // by default, transition
+        return true
     }
     
 }
 
+
+    //MARK: Textfield extension
 extension UITextField {
     func setBottomBorder() {
         self.borderStyle = .none

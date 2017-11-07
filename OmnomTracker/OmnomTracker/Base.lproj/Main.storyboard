@@ -745,7 +745,7 @@
                     <navigationItem key="navigationItem" title="Log meal" id="0Sl-jX-yBQ">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="bKI-ie-qAQ">
                             <connections>
-                                <segue destination="QcR-jb-TtP" kind="show" id="ClM-yg-FUp"/>
+                                <segue destination="QcR-jb-TtP" kind="show" identifier="logMealFinishedSegue" id="iXL-Hh-MMm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -867,6 +867,6 @@
         <image name="icons8-user_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ClM-yg-FUp"/>
+        <segue reference="iXL-Hh-MMm"/>
     </inferredMetricsTieBreakers>
 </document>
