@@ -186,6 +186,14 @@ class LogMealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                 alert.show()
                 return false
             }
+            else if (Int(amountOfPortionsField.text!) == nil) {
+                let alert = UIAlertView()
+                alert.title = "Invalid form"
+                alert.message = "Please enter a correct portion size"
+                alert.addButton(withTitle: "Ok")
+                alert.show()
+                return false
+            }
             else {
                 return true
             }

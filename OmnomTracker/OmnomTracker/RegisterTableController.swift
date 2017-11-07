@@ -76,15 +76,9 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     
     //als we op save klikken
     override func viewDidDisappear(_ animated: Bool) {
-        if(validation()) {
-            putUserInDatabase()
-            super.viewDidDisappear(animated)
-            self.navigationController?.navigationBar.isHidden = false
-        }
-        else {
-            messageLabel.text = "Gelieve alle velden in te vullen."
-        }
-        
+        putUserInDatabase()
+        self.navigationController?.navigationBar.isHidden = false
+        super.viewDidDisappear(animated)
     }
     
     
@@ -239,9 +233,26 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
         }
     }
     
-    func validation() -> Bool {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "registrationFinishedSegue" {
+            let isValid = self.isValid()
+            if (!isValid) {
+                let alert = UIAlertView()
+                alert.title = "Invalid form"
+                alert.message = "Please enter all fields"
+                alert.addButton(withTitle: "Ok")
+                alert.show()
+            }
+            return isValid
+        }
         
-        if(height == 0 || weight != 0 || calorieGoal != 0 || gender != "" || weightGoal != 0) {
+        // by default, transition
+        return true
+    }
+    
+    func isValid() -> Bool {
+        
+        if(height != 0 && weight != 0 && calorieGoal != 0 && !gender.isEmpty && weightGoal != 0) {
             return true
         }
         return false

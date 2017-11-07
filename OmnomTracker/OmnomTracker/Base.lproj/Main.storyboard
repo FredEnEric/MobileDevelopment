@@ -55,7 +55,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <state key="normal" title="Continue"/>
                                                         <connections>
-                                                            <segue destination="FD8-5f-lGB" kind="show" id="6yS-Cv-bIC"/>
+                                                            <segue destination="SNV-68-7Bh" kind="show" id="GxZ-7O-yuT"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -81,51 +81,12 @@
             </objects>
             <point key="canvasLocation" x="295" y="-660"/>
         </scene>
-        <!--RegisterView-->
-        <scene sceneID="bwv-dw-X7P">
-            <objects>
-                <viewController title="RegisterView" automaticallyAdjustsScrollViewInsets="NO" id="FD8-5f-lGB" customClass="RegisterViewController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Zzp-9h-1AW"/>
-                        <viewControllerLayoutGuide type="bottom" id="Yno-Bn-46U"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oc3-Md-wMm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="Yv9-Ml-EoU">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <connections>
-                                    <segue destination="SNV-68-7Bh" kind="embed" id="nw0-7U-g6x"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Yv9-Ml-EoU" secondAttribute="trailing" id="6uV-RJ-hRa"/>
-                            <constraint firstItem="Yno-Bn-46U" firstAttribute="top" secondItem="Yv9-Ml-EoU" secondAttribute="bottom" id="Dme-hw-2Ux"/>
-                            <constraint firstItem="Yv9-Ml-EoU" firstAttribute="top" secondItem="Zzp-9h-1AW" secondAttribute="bottom" id="ETL-sJ-n8z"/>
-                            <constraint firstItem="Yv9-Ml-EoU" firstAttribute="leading" secondItem="oc3-Md-wMm" secondAttribute="leading" id="j0g-0K-tfh"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Register" id="aid-Z3-Jcy">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="v32-gJ-iLm">
-                            <connections>
-                                <segue destination="QcR-jb-TtP" kind="show" id="fGP-5r-LgO"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2bg-km-r7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1170" y="-702"/>
-        </scene>
-        <!--Register Table Controller-->
+        <!--Register-->
         <scene sceneID="IBJ-N9-zkk">
             <objects>
                 <tableViewController id="SNV-68-7Bh" customClass="RegisterTableController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="top" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="PqT-2B-ngd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x9F-M9-I0O">
@@ -351,6 +312,13 @@
                             <outlet property="delegate" destination="SNV-68-7Bh" id="WOH-3S-13M"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Register" id="vwW-1I-xxt">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="jgj-Nt-CP8">
+                            <connections>
+                                <segue destination="QcR-jb-TtP" kind="show" identifier="registrationFinishedSegue" id="vBn-jr-2wj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calorieGoaldField" destination="Pv5-DR-MNH" id="aq3-8e-bgo"/>
                         <outlet property="dateField" destination="J5j-UV-CKw" id="uDR-sa-aiL"/>
@@ -363,7 +331,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJQ-ZN-KbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984.8" y="-660.71964017991013"/>
+            <point key="canvasLocation" x="1182" y="-662"/>
         </scene>
         <!--History-->
         <scene sceneID="foB-OI-wNd">
@@ -437,7 +405,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3bj-xb-GXv">
-                                <rect key="frame" x="16" y="79" width="343" height="87.5"/>
+                                <rect key="frame" x="16" y="35" width="343" height="87.5"/>
                                 <subviews>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iz1-YG-ycB">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="2"/>
@@ -582,7 +550,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RfB-f1-h50">
-                                <rect key="frame" x="16" y="94" width="343" height="133.5"/>
+                                <rect key="frame" x="16" y="50" width="343" height="133.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Omnomnom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfD-0h-7vE">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
@@ -653,7 +621,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eXH-Hd-13l">
-                                <rect key="frame" x="16" y="257.5" width="343" height="143"/>
+                                <rect key="frame" x="16" y="213.5" width="343" height="143"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutritional value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4we-w4-hr6">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
@@ -777,7 +745,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KJK-2K-Dbl">
-                                <rect key="frame" x="16" y="104" width="343" height="128.5"/>
+                                <rect key="frame" x="16" y="60" width="343" height="128.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JYs-Fv-63l">
                                         <rect key="frame" x="0.0" y="0.0" width="128.5" height="128.5"/>
@@ -818,14 +786,15 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctg-aG-yqE">
-                                <rect key="frame" x="16" y="262.5" width="343" height="150"/>
+                                <rect key="frame" x="16" y="218.5" width="343" height="150"/>
                                 <color key="backgroundColor" red="0.9315841198" green="0.18624922629999999" blue="0.13024824860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="wwC-E2-e7j"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7q-gx-zUN">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y7q-gx-zUN">
                                 <rect key="frame" x="16" y="81" width="343" height="344"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -837,12 +806,6 @@
                             <constraint firstItem="KJK-2K-Dbl" firstAttribute="top" secondItem="MzZ-BA-GBM" secondAttribute="bottom" constant="40" id="cUh-pA-syw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KJK-2K-Dbl" secondAttribute="trailing" id="ibT-zo-Vfy"/>
                             <constraint firstItem="ctg-aG-yqE" firstAttribute="leading" secondItem="ekx-Ek-NoU" secondAttribute="leadingMargin" id="qVN-8V-rbZ"/>
-                        </constraints>
-                        <constraints>
-                            <constraint firstItem="Y7q-gx-zUN" firstAttribute="top" secondItem="Ou1-fW-eN8" secondAttribute="bottom" constant="61" id="7uY-2E-lNd"/>
-                            <constraint firstItem="ROc-bV-6Ep" firstAttribute="top" secondItem="Y7q-gx-zUN" secondAttribute="bottom" constant="242" id="jbx-ze-z1q"/>
-                            <constraint firstItem="Y7q-gx-zUN" firstAttribute="trailing" secondItem="4aa-XR-tph" secondAttribute="trailingMargin" id="kK8-Jf-uAm"/>
-                            <constraint firstItem="Y7q-gx-zUN" firstAttribute="leading" secondItem="4aa-XR-tph" secondAttribute="leadingMargin" id="xvI-k3-Ifd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="2" title="Profile" image="icons8-user_filled" id="jSL-Lo-M2b"/>
@@ -877,6 +840,6 @@
         <image name="icons8-user_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iXL-Hh-MMm"/>
+        <segue reference="vBn-jr-2wj"/>
     </inferredMetricsTieBreakers>
 </document>
