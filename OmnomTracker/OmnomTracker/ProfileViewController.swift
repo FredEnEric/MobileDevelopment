@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import SwiftCharts
 
 class ProfileViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -31,7 +31,6 @@ class ProfileViewController: UIViewController {
         //self.navigationController?.isNavigationBarHidden = false
     }
     
-
     /*
     // MARK: - Navigation
 
