@@ -25,6 +25,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.27.0):
     - FBSDKCoreKit
+  - SwiftCharts (0.6)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - SwiftCharts
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -43,8 +45,9 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: ebc6c5f5b3f0e72396041050e2266781a38ac587
   FBSDKLoginKit: 887be4b7452e1c5a3cc4485ce152529965a0c41e
   FBSDKShareKit: 4f83956d4ca2960730fe7588a168eb8d535c06dc
+  SwiftCharts: d8e6d60679bc982f48f8bea25cf5c1b94fcfec4f
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: d1c727f69f309712df900d1cefa720e44a310d24
+PODFILE CHECKSUM: 60f8e00ef92a7ebe17fd414c78cb4f252dff52f4
 
 COCOAPODS: 1.3.1

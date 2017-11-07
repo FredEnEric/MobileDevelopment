@@ -467,7 +467,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x2D-sZ-VVu" customClass="MealTableView">
-                                <rect key="frame" x="0.0" y="182" width="375" height="390"/>
+                                <rect key="frame" x="0.0" y="182" width="375" height="439"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableCell" id="vFn-hF-AUG">
@@ -481,7 +481,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqy-2B-5Lx">
-                                <rect key="frame" x="154" y="580" width="67" height="30"/>
+                                <rect key="frame" x="154" y="629" width="67" height="30"/>
                                 <state key="normal" title="Log meal"/>
                                 <connections>
                                     <segue destination="g4O-eE-5ci" kind="show" id="6aA-80-LCh"/>
@@ -824,6 +824,10 @@
                                     <constraint firstAttribute="height" constant="150" id="wwC-E2-e7j"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7q-gx-zUN">
+                                <rect key="frame" x="16" y="81" width="343" height="344"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -833,6 +837,12 @@
                             <constraint firstItem="KJK-2K-Dbl" firstAttribute="top" secondItem="MzZ-BA-GBM" secondAttribute="bottom" constant="40" id="cUh-pA-syw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KJK-2K-Dbl" secondAttribute="trailing" id="ibT-zo-Vfy"/>
                             <constraint firstItem="ctg-aG-yqE" firstAttribute="leading" secondItem="ekx-Ek-NoU" secondAttribute="leadingMargin" id="qVN-8V-rbZ"/>
+                        </constraints>
+                        <constraints>
+                            <constraint firstItem="Y7q-gx-zUN" firstAttribute="top" secondItem="Ou1-fW-eN8" secondAttribute="bottom" constant="61" id="7uY-2E-lNd"/>
+                            <constraint firstItem="ROc-bV-6Ep" firstAttribute="top" secondItem="Y7q-gx-zUN" secondAttribute="bottom" constant="242" id="jbx-ze-z1q"/>
+                            <constraint firstItem="Y7q-gx-zUN" firstAttribute="trailing" secondItem="4aa-XR-tph" secondAttribute="trailingMargin" id="kK8-Jf-uAm"/>
+                            <constraint firstItem="Y7q-gx-zUN" firstAttribute="leading" secondItem="4aa-XR-tph" secondAttribute="leadingMargin" id="xvI-k3-Ifd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="2" title="Profile" image="icons8-user_filled" id="jSL-Lo-M2b"/>

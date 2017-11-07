@@ -44,22 +44,7 @@ class ViewController: UIViewController{
                 }
             })
         }
-        /*
-        let fetchRequest:NSFetchRequest<User> = User.fetchRequest()
-        
-        //cleaner code (DatabaseController.getContext)
-        do {
-            let searchResult = try DatabaseController.getContext().fetch(fetchRequest)
-            print("number of results: \(searchResult.count)")
-            
-            for result in searchResult as [User]{
-                    print("Height: \(String(describing: result.height))")
-            }
-        }
-        catch {
-            print("Error: \(error)")
-        }
-        */
+
     }
     
     func fetchProfile(){

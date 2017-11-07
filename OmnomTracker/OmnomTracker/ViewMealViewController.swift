@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftCharts
 
 class ViewMealViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var foodRepo = FoodRepository()
@@ -22,6 +23,8 @@ class ViewMealViewController: UIViewController, UITableViewDataSource, UITableVi
     var sectionItems: Array<Any> = []
     var sectionNames: Array<Any> = []
     
+
+    @IBOutlet weak var day: UINavigationItem!
     
     override func viewDidLoad() {
       
@@ -39,8 +42,7 @@ class ViewMealViewController: UIViewController, UITableViewDataSource, UITableVi
             foodRepo.getFoodTitle(foodtype: 0), foodRepo.getFoodTitle(foodtype: 1), foodRepo.getFoodTitle(foodtype: 2), foodRepo.getFoodTitle(foodtype: 3), foodRepo.getFoodTitle(foodtype: 4)
         ];
         self.tableView!.tableFooterView = UIView()
-        //self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableCell")
-        
+       
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +56,9 @@ class ViewMealViewController: UIViewController, UITableViewDataSource, UITableVi
         self.navigationItem.rightBarButtonItem?.title = "Log Weight"
  */}
     
+    public func changeDate() {
+        print("date")
+    }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         //self.navigationItem.setHidesBackButton(false, animated: false)
@@ -68,18 +73,7 @@ class ViewMealViewController: UIViewController, UITableViewDataSource, UITableVi
         let searchTableViewController = segue.destination as! SearchTableViewController
         searchTableViewController.lunch = Int32(Lunch.breakfast.rawValue)
     }
-    /*
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = mealTable.dequeueReusableCell(withIdentifier: "cell")!
-        cell.textLabel?.text = foodList[indexPath.row].name
-        return cell
-    }
-    */
+
     func numberOfSections(in tableView: UITableView) -> Int {
         if sectionNames.count > 0 {
             tableView.backgroundView = nil
