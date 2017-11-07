@@ -15,10 +15,19 @@ class LogMealViewController: UIViewController {
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var portionSizeLabel: UILabel!
     @IBOutlet weak var amountOfPortionsField: UITextField!
+    @IBOutlet weak var mealTimeField: UITextField!
+    @IBOutlet weak var caloriesLabel: UILabel!
+    @IBOutlet weak var proteinsLabel: UILabel!
+    @IBOutlet weak var fatsLabel: UILabel!
+    @IBOutlet weak var carbsLabel: UILabel!
+    
+    let proteinId : Int32 = 203
+    let caloriesId : Int32 = 208
+    let fatId : Int32 = 204
+    let carbsId : Int32 = 205
     
     var mealName = "Omnomnom"
     var mealId = "not set"
-    var tableController: LogMealTableViewController!
     var lunch = Int32()
     var foodRepo = FoodRepository()
     var foodModel = FoodModel()
@@ -40,7 +49,8 @@ class LogMealViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         mealNameLabel.text = mealName.capitalized
-        amountOfPortionsField.setBottomBorder()  
+        amountOfPortionsField.setBottomBorder()
+        mealTimeField.setBottomBorder()
     }
     
     //als we op save klikken
@@ -77,20 +87,30 @@ class LogMealViewController: UIViewController {
             self.portionSizeLabel.text = String(format:"%.2f g", servingSize)
         }
         
+        
         if let nutrients = data["full_nutrients"] as? NSArray {
-            self.tableController.setNutrients(nutrients: nutrients)
+            for nutrientObject in nutrients {
+                if let nutrient = nutrientObject as? NSDictionary {
+                    let id = nutrient["attr_id"] as! Int32
+                    let value = String(format:"%.2f", nutrient["value"] as! Double)
+                    switch id {
+                    case self.carbsId:
+                        self.carbsLabel.text = "\(value) g"
+                    case self.proteinId:
+                        self.proteinsLabel.text = "\(value) g"
+                    case self.fatId:
+                        self.fatsLabel.text = "\(value) g"
+                    case self.caloriesId:
+                        self.caloriesLabel.text = "\(value) kCal"
+                    default:
+                        continue
+                    }
+                }
+            }
+            
         }
         
     }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "logMealTableViewSegue")
-        {
-            tableController = segue.destination as! LogMealTableViewController
-        }
-    }
-    
     
     func putMealInDatabase() {
         //let food: Food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: DatabaseController.persistentContainer.viewContext) as! Food

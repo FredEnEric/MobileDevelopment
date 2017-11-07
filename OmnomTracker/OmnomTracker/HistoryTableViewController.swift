@@ -1,28 +1,17 @@
 //
-//  LogMealTableViewController.swift
+//  HistoryTableViewController.swift
 //  OmnomTracker
 //
-//  Created by Student on 31/10/2017.
+//  Created by Student on 06/11/2017.
 //  Copyright © 2017 PXL. All rights reserved.
 //
 
 import UIKit
 
-class LogMealTableViewController: UITableViewController {
+class HistoryTableViewController: UITableViewController {
+    
+    let testDays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
-    @IBOutlet weak var dailyCaloriesPercentLabel: UILabel!
-    @IBOutlet weak var caloriesLabel: UILabel!
-    @IBOutlet weak var proteinsLabel: UILabel!
-    @IBOutlet weak var fatsLabel: UILabel!
-    @IBOutlet weak var carbsLabel: UILabel!
-    
-    var nutrients : NSArray = []
-    
-    let proteinId : Int32 = 203
-    let caloriesId : Int32 = 208
-    let fatId : Int32 = 204
-    let carbsId : Int32 = 205
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,13 +20,15 @@ class LogMealTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        self.updateLabels()
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
+        
+        //self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,51 +38,21 @@ class LogMealTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
-    }
-    
-    public func setNutrients(nutrients: NSArray) {
-        self.nutrients = nutrients
-        self.updateLabels()
-    }
-    
-    private func updateLabels() {
-        for nutrientObject in self.nutrients {
-            if let nutrient = nutrientObject as? NSDictionary {
-                let id = nutrient["attr_id"] as! Int32
-                let value = String(format:"%.2f", nutrient["value"] as! Double)
-                switch id {
-                case self.carbsId:
-                    self.carbsLabel.text = "\(value) g"
-                case self.proteinId:
-                    self.proteinsLabel.text = "\(value) g"
-                case self.fatId:
-                    self.fatsLabel.text = "\(value) g"
-                case self.caloriesId:
-                    self.caloriesLabel.text = "\(value) kCal"
-                default:
-                    continue
-                }
-            }
-        }
+        return self.testDays.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = UITableViewCell()
         // Configure the cell...
-
+        cell.textLabel?.text = self.testDays[indexPath.row]
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -128,14 +89,22 @@ class LogMealTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let day =  self.testDays[indexPath.row]
+        performSegue(withIdentifier: "viewDaySegue", sender: day)
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let dayViewController = segue.destination as! DayViewController
+        dayViewController.day = sender as! String
     }
-    */
+    
 
 }

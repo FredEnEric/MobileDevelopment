@@ -51,7 +51,7 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.layoutMargins = UIEdgeInsets.zero
+        //tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
         
         //genderData wordt hierboven al genereert

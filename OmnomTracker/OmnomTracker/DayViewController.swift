@@ -1,24 +1,21 @@
 //
-//  ProfileViewController.swift
+//  DayViewController.swift
 //  OmnomTracker
 //
-//  Created by Sinasi Yilmaz on 10/10/17.
+//  Created by Student on 06/11/2017.
 //  Copyright © 2017 PXL. All rights reserved.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class DayViewController: UIViewController {
+    
+    var day : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,9 +23,12 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        //self.navigationController?.isNavigationBarHidden = false
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = self.day
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.backBarButtonItem = UIBarButtonItem()
+        self.navigationItem.backBarButtonItem?.title = "Back"
     }
     
 
