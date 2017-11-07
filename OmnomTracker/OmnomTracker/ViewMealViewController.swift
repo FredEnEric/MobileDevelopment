@@ -47,8 +47,9 @@ class ViewMealViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        /*
+        
         self.navigationController?.isNavigationBarHidden = false
+        /*
         self.navigationItem.title = "Today"
         self.navigationItem.backBarButtonItem = UIBarButtonItem()
         self.navigationItem.backBarButtonItem?.title = "Cancel"
