@@ -13,22 +13,13 @@ class FoodRepository {
     var food: Food = NSEntityDescription.insertNewObject(forEntityName: "Food", into: DatabaseController.persistentContainer.viewContext) as! Food
     
     func add(model: FoodModel) {
-
         food.name = model.name
-        /*
-         food.calories = Int32(caloriesLabel.text!)!
-         food.carbs = Float(carbGramsLabel.text!)!
-         food.protein = Float(proteinGramsLabel.text!)!
-         food.fat = Float(fatGramsLabel.text!)!
-         */
-        //dit moet achteraf als frederic api werkend heeft gekregen vervangen worden door hierboven.
-        food.calories = 10
-        food.carbs = 10
-        food.protein = 10
-        food.fat = 10
+        food.calories = model.calories
+        food.carbs = model.carbs
+        food.protein = model.protein
+        food.fat = model.fat
         food.lunch = model.lunch
         DatabaseController.saveContext()
-        print("ok")
     }
     
     func getAll() -> Array<Food>{
@@ -48,20 +39,6 @@ class FoodRepository {
         }
 
         return foodList
-        /*
-        do {
-            let searchResult = try DatabaseController.getContext().fetch(fetchRequest)
-            print("number of results: \(searchResult.count)")
-            
-            for result in searchResult as [User]{
-                print("Height: \(String(describing: result.height))")
-            }
-        }
-        catch {
-            print("Error: \(error)")
-        }
-         */
-
     }
     
     func getFoodTitle(foodtype: Int32) -> Array<String> {

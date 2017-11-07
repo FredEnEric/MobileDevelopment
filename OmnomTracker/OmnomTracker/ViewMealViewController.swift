@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftCharts
-
 class ViewMealViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var foodRepo = FoodRepository()
     
@@ -45,6 +44,7 @@ class ViewMealViewController: UIViewController, UITableViewDataSource, UITableVi
        
     }
 
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -53,7 +53,7 @@ class ViewMealViewController: UIViewController, UITableViewDataSource, UITableVi
         self.navigationItem.title = "Today"
         self.navigationItem.backBarButtonItem = UIBarButtonItem()
         self.navigationItem.backBarButtonItem?.title = "Cancel"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Weight", style: .plain, target: self, action: #selector())
         self.navigationItem.rightBarButtonItem?.title = "Log Weight"
  */}
     

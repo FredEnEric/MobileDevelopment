@@ -12,5 +12,5 @@ target 'OmnomTracker' do
   pod 'FacebookShare'
   pod 'Alamofire', '~> 4.5'
   pod 'SwiftyJSON'
-  pod 'SwiftCharts'
+  pod 'SwiftCharts'  
 end

@@ -41,8 +41,8 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     //data
     var genderData = ["Female", "Male", "Other"]
     var heightData = [Int]()
-    var weightData = [Int]()
-    var weightGoaldData = [Int]()
+    var weightData = [Float]()
+    var weightGoaldData = [Float]()
     var calorieGoaldData = [Int]()
     
     
@@ -155,14 +155,15 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
         return heightArray
     }
     
-    func generateWeightData() -> Array<Int> {
+    func generateWeightData() -> Array<Float> {
         //declare array
-        var weightArray = [Int]()
+        var weightArray = [Float]()
         
         //add each item in array
-        for weight in 25...200 {
-            weightArray.append(weight)
+        for weight in stride(from: 25.0, to: 200.0, by: 0.1) {
+            weightArray.append(Float(weight))
         }
+
         return weightArray
     }
     
