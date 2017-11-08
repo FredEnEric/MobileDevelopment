@@ -62,7 +62,7 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
         craetePicker(field: weightGoaldField, picker: weightgoalPicker)
         craetePicker(field: calorieGoaldField, picker: calorieGoalPicker)
         
-        if !(user.gender?.isEmpty)! {
+        if user.gender != "" {
             genderField.text = user.gender
             gender = user.gender!
         }
@@ -75,7 +75,6 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     //als we op save klikken
     override func viewDidDisappear(_ animated: Bool) {
         putUserInDatabase()
-        self.navigationController?.navigationBar.isHidden = false
         super.viewDidDisappear(animated)
     }
     
