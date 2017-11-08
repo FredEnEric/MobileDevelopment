@@ -4,4 +4,5 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <ShinobiCharts/ShinobiCharts.h>
 

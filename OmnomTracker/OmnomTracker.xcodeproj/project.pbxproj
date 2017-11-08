@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3F1A24E01FB36C3B00DC88EF /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1A24DF1FB36C3B00DC88EF /* UserModel.swift */; };
 		3F6401251F836E5A003038C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6401241F836E5A003038C2 /* ViewController.swift */; };
-		3F6401281F836E5A003038C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6401261F836E5A003038C2 /* Main.storyboard */; };
 		3F64012A1F836E5B003038C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F6401291F836E5B003038C2 /* Assets.xcassets */; };
 		3F64012D1F836E5B003038C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F64012B1F836E5B003038C2 /* LaunchScreen.storyboard */; };
 		3FB211691F923EE7005F8418 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB211681F923EE7005F8418 /* HomeTabBarController.swift */; };
@@ -27,6 +26,10 @@
 		566BF5861F9CEF8200054F7E /* FoodRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF5851F9CEF8200054F7E /* FoodRepository.swift */; };
 		566BF58B1F9CF14100054F7E /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF58A1F9CF14100054F7E /* FoodModel.swift */; };
 		567FE29B1F854093004DDB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FE29A1F854093004DDB84 /* AppDelegate.swift */; };
+		569459AE1FB396A400A8F4FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569459AD1FB396A400A8F4FC /* Main.storyboard */; };
+		56A867191FB359E200728412 /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56A867181FB359E200728412 /* ShinobiCharts.framework */; };
+		56A8671B1FB35A0200728412 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 56A8671A1FB35A0200728412 /* libc++.tbd */; };
+		56A8671D1FB35B2A00728412 /* DataChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8671C1FB35B2A00728412 /* DataChart.swift */; };
 		56A94AB41F8A925100B54B47 /* OmnomDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56A94AB21F8A925100B54B47 /* OmnomDB.xcdatamodeld */; };
 		56A94AD71F8A93B200B54B47 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A94AD61F8A93B200B54B47 /* DatabaseController.swift */; };
 		56D327BE1FB213200094DBCA /* LogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D327BD1FB213200094DBCA /* LogRepository.swift */; };
@@ -39,7 +42,6 @@
 		3F1A24E11FB37B7400DC88EF /* OmnomTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OmnomTracker.entitlements; sourceTree = "<group>"; };
 		3F64011F1F836E5A003038C2 /* OmnomTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnomTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6401241F836E5A003038C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3F6401271F836E5A003038C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F6401291F836E5B003038C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F64012C1F836E5B003038C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F64012E1F836E5B003038C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +63,11 @@
 		567FE2961F854062004DDB84 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		567FE2971F854062004DDB84 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		567FE29A1F854093004DDB84 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		569459AC1FB37AB900A8F4FC /* OmnomTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OmnomTracker.entitlements; sourceTree = "<group>"; };
+		569459AD1FB396A400A8F4FC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		56A867181FB359E200728412 /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
+		56A8671A1FB35A0200728412 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		56A8671C1FB35B2A00728412 /* DataChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataChart.swift; sourceTree = "<group>"; };
 		56A94AB31F8A925100B54B47 /* OmnomDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OmnomDB.xcdatamodel; sourceTree = "<group>"; };
 		56A94AD61F8A93B200B54B47 /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		56D327B21FB1C3120094DBCA /* UIViewController_isModal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIViewController_isModal.framework; path = "Pods/../build/Debug-iphoneos/UIViewController+isModal/UIViewController_isModal.framework"; sourceTree = "<group>"; };
@@ -77,7 +84,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56A8671B1FB35A0200728412 /* libc++.tbd in Frameworks */,
 				A5AFA41EBB8D76BE18F3D10F /* Pods_OmnomTracker.framework in Frameworks */,
+				56A867191FB359E200728412 /* ShinobiCharts.framework in Frameworks */,
 				3FCEFFEE1F9F2BE700E1FBD3 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +97,7 @@
 		0D07E7FE7C9F8F5C250FB315 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				56A8671A1FB35A0200728412 /* libc++.tbd */,
 				56D327B21FB1C3120094DBCA /* UIViewController_isModal.framework */,
 				3FCEFFEF1F9F2FC900E1FBD3 /* SwiftyJSON.framework */,
 				3FCEFFED1F9F2BE700E1FBD3 /* Alamofire.framework */,
@@ -117,6 +127,8 @@
 		3F6401211F836E5A003038C2 /* OmnomTracker */ = {
 			isa = PBXGroup;
 			children = (
+				569459AC1FB37AB900A8F4FC /* OmnomTracker.entitlements */,
+				56A867181FB359E200728412 /* ShinobiCharts.framework */,
 				3F1A24E11FB37B7400DC88EF /* OmnomTracker.entitlements */,
 				56CDFCC81F9D238F0081E0DC /* Helpers */,
 				566BF5891F9CF13200054F7E /* Models */,
@@ -124,11 +136,11 @@
 				566BF57F1F9CE6FD00054F7E /* Enums */,
 				564259151F8CC5E4000C6F23 /* Controllers */,
 				567FE29A1F854093004DDB84 /* AppDelegate.swift */,
-				3F6401261F836E5A003038C2 /* Main.storyboard */,
 				3F6401291F836E5B003038C2 /* Assets.xcassets */,
 				3F64012B1F836E5B003038C2 /* LaunchScreen.storyboard */,
 				3F64012E1F836E5B003038C2 /* Info.plist */,
 				56F8D1161F853D73006CD33C /* OmnomTracker-Bridging-Header.h */,
+				569459AD1FB396A400A8F4FC /* Main.storyboard */,
 				567FE2961F854062004DDB84 /* FBSDKCoreKit.framework */,
 				567FE2971F854062004DDB84 /* FBSDKLoginKit.framework */,
 				56A94AB21F8A925100B54B47 /* OmnomDB.xcdatamodeld */,
@@ -185,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				56DF7D831FAF610500923AE4 /* UIColor.swift */,
+				56A8671C1FB35B2A00728412 /* DataChart.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -267,9 +280,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				569459AE1FB396A400A8F4FC /* Main.storyboard in Resources */,
 				3F64012D1F836E5B003038C2 /* LaunchScreen.storyboard in Resources */,
 				3F64012A1F836E5B003038C2 /* Assets.xcassets in Resources */,
-				3F6401281F836E5A003038C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +378,7 @@
 				3FB2116B1F925413005F8418 /* RegisterTableController.swift in Sources */,
 				566BF5811F9CE74F00054F7E /* Lunch.swift in Sources */,
 				3FB211691F923EE7005F8418 /* HomeTabBarController.swift in Sources */,
+				56A8671D1FB35B2A00728412 /* DataChart.swift in Sources */,
 				567FE29B1F854093004DDB84 /* AppDelegate.swift in Sources */,
 				3F6401251F836E5A003038C2 /* ViewController.swift in Sources */,
 				566BF58B1F9CF14100054F7E /* FoodModel.swift in Sources */,
@@ -381,14 +395,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3F6401261F836E5A003038C2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3F6401271F836E5A003038C2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3F64012B1F836E5B003038C2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -501,8 +507,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = OmnomTracker/OmnomTracker.entitlements;
-				DEVELOPMENT_TEAM = LS433Z9T8B;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OmnomTracker",

@@ -17,9 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        ShinobiCharts.trialKey = "dHNg-eFQM-VgAA-O3R1-ZS5f-B1dT" // <- Enter trial key here.
 
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // Override point for customization after application launch.
+        
         
         
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

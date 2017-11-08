@@ -25,7 +25,7 @@ class HomeTabBarController: UITabBarController, UIPickerViewDataSource, UIPicker
     //@IBOutlet weak var weightField: UITextField!
     @IBOutlet var logWeightView: UIView!
     @IBAction func logWeightButton(_ sender: Any){
-        if(weight != 0.0){
+        if(weight != 0){
             putLogWeightInDatabase()
         }
         animateOut()

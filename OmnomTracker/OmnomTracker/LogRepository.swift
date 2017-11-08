@@ -14,6 +14,30 @@ class LogRepository {
     
     func add(model: LogModel) {
         log.weight = model.weight
-        DatabaseController.saveContext()
+        if(log.weight != 0){
+            DatabaseController.saveContext()
+        }
     }
+    
+    func getAllLogs() -> Array<Float> {
+        var logList = [Float]()
+        
+        let fetchRequest:NSFetchRequest<Log> = Log.fetchRequest()
+        
+        do {
+            let logResult = try DatabaseController.getContext().fetch(fetchRequest)
+            
+            for log in logResult as [Log]{
+                if(log.weight != 0){
+                    logList.append(log.weight)
+                }
+            }
+        }
+        catch {
+            print("Error: \(error)")
+        }
+        
+        return logList
+    }
+
 }
