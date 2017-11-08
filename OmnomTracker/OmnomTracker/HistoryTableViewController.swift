@@ -17,11 +17,6 @@ class HistoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
         
@@ -34,14 +29,13 @@ class HistoryTableViewController: UITableViewController {
         
         fetchData()
     }
-    
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,23 +66,22 @@ class HistoryTableViewController: UITableViewController {
                 // date is nil, ignore this entry:
                 continue
             }
-            let cellLabel = prettyDateFormat.string(from: date)
             let key = Int(keyDateFormat.string(from: date))!
             if (store[key] == nil) {
                 store[key] = [Food]()
-                cellLabels[key] = cellLabel
+                cellLabels[key] = prettyDateFormat.string(from: date)
             }
             store[key]?.append(food)
         }
-        keys = Array(cellLabels.keys).sorted(by: >)
+        keys = cellLabels.keys.sorted(by: >)
     }
 
     
     // MARK: - Navigation
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let day =  keys[indexPath.row]
-        performSegue(withIdentifier: "viewDaySegue", sender: day)
+        let key =  keys[indexPath.row]
+        performSegue(withIdentifier: "viewDaySegue", sender: key)
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation

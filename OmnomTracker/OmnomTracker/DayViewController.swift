@@ -28,8 +28,6 @@ class DayViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationItem.title = date
         self.navigationController?.isNavigationBarHidden = false
-        
-        print(foods)
     }
     
 

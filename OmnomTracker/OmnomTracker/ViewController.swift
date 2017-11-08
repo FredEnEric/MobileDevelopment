@@ -46,10 +46,6 @@ class ViewController: UIViewController{
         }
 
     }
-    
-    func fetchProfile(){
-        print("fech profile")
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
