@@ -168,7 +168,10 @@ class LogMealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
    
         foodModel.name = mealName.capitalized
         foodModel.date = Date() as NSDate
-        
+        print(foodModel.calories)
+        print(foodModel.date)
+        print(foodModel.name)
+        print(foodModel.lunch)
         //save food in repo
         foodRepo.add(model: foodModel)
     }

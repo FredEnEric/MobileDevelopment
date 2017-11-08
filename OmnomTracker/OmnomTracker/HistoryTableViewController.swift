@@ -10,7 +10,9 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
     
-    let testDays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    var keys = [Int]()
+    var cellLabels = [Int: String]()
+    var store = [Int: [Food]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,11 @@ class HistoryTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        
+        fetchData()
     }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -40,7 +46,7 @@ class HistoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.testDays.count
+        return keys.count
     }
 
     
@@ -48,52 +54,40 @@ class HistoryTableViewController: UITableViewController {
         //let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let cell = UITableViewCell()
         // Configure the cell...
-        cell.textLabel?.text = self.testDays[indexPath.row]
+        cell.textLabel?.text = cellLabels[keys[indexPath.row]]
         
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func fetchData() {
+        let repository = FoodRepository()
+        let foods = repository.getAll()
+        let prettyDateFormat = DateFormatter()
+        prettyDateFormat.dateFormat = "EEEE, d MMM yyyy"
+        let keyDateFormat = DateFormatter()
+        keyDateFormat.dateFormat = "yyyyMMdd"
+        
+        for food in foods {
+            guard let date = food.date as Date? else {
+                // date is nil, ignore this entry:
+                continue
+            }
+            let cellLabel = prettyDateFormat.string(from: date)
+            let key = Int(keyDateFormat.string(from: date))!
+            if (store[key] == nil) {
+                store[key] = [Food]()
+                cellLabels[key] = cellLabel
+            }
+            store[key]?.append(food)
+        }
+        keys = Array(cellLabels.keys).sorted(by: >)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     
     // MARK: - Navigation
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let day =  self.testDays[indexPath.row]
+        let day =  keys[indexPath.row]
         performSegue(withIdentifier: "viewDaySegue", sender: day)
     }
     
@@ -103,8 +97,8 @@ class HistoryTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         
         let dayViewController = segue.destination as! DayViewController
-        dayViewController.day = sender as! String
+        dayViewController.date = cellLabels[sender as! Int]!
+        dayViewController.foods = store[sender as! Int]!
     }
     
-
 }

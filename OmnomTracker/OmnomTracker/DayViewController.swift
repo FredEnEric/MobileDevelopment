@@ -10,7 +10,8 @@ import UIKit
 
 class DayViewController: UIViewController {
     
-    var day : String = ""
+    var date : String = ""
+    var foods = [Food]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +26,10 @@ class DayViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = self.day
+        self.navigationItem.title = date
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.backBarButtonItem = UIBarButtonItem()
-        self.navigationItem.backBarButtonItem?.title = "Back"
+        
+        print(foods)
     }
     
 

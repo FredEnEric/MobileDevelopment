@@ -19,6 +19,8 @@ class FoodRepository {
         food.protein = model.protein
         food.fat = model.fat
         food.lunch = model.lunch
+        food.date = model.date
+        food.portions = model.portions
         DatabaseController.saveContext()
     }
     
