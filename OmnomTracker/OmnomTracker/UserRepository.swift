@@ -14,7 +14,7 @@ class UserRepository {
     
     func add(model: UserModel) {
         user.calorieGoal = model.calorieGoal
-        user.dateBirth = model.dateBirth as NSDate
+        user.dateBirth = model.dateBirth!
         user.firstName = model.firstName
         user.gender = model.gender
         user.height = model.height

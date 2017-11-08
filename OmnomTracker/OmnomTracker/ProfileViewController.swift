@@ -10,10 +10,17 @@ import UIKit
 import SwiftCharts
 
 class ProfileViewController: UIViewController {
+    var user = User()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        let repo = UserRepository()
+        user = repo.get()
+        print(user.profilePicUrl)
+        print(user.gender)
+        print(user.calorieGoal)
     }
     
     override func viewWillAppear(_ animated: Bool) {

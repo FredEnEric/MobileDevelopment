@@ -13,11 +13,7 @@ import CoreData
 
 class ViewController: UIViewController{
 
-    @NSManaged var date: NSDate?
-    @IBOutlet weak var userName: UITextField!
-    
-    var gender = String()
-    var userId = Int()
+    var user = UserModel()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,16 +27,16 @@ class ViewController: UIViewController{
         loginButton.center = view.center
         
         if AccessToken.current != nil {
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, gender"]).start(completionHandler: { (connection, result, error) -> Void in
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "first_name, gender, picture.type(large)"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     let fbDetails = result as! NSDictionary
+
+                    self.user.gender = fbDetails["gender"] as? String
+                    self.user.gender = self.user.gender?.capitalized
+                    self.user.firstName = fbDetails["first_name"] as? String
+                    self.user.profilePicUrl = ((fbDetails["picture"] as! NSDictionary)["data"] as! NSDictionary)["url"] as? String
                     
-                    //let idD = fbDetails["id"]
-                    let genderD = fbDetails["gender"]
-                    //self.userId = idD as! Int
-                    self.gender = genderD as! String
-                    //self.gender = self.gender.uppercased()
-                    print(fbDetails)
+                    self.performSegue(withIdentifier: "registerSegue", sender: self)
                 }
             })
         }
@@ -58,8 +54,8 @@ class ViewController: UIViewController{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //let registerTableController = segue.destination as! RegisterViewController
-        //registerTableController.genderString = gender
+        let registerTableController = segue.destination as! RegisterTableController
+        registerTableController.user = self.user
     }
 }
 

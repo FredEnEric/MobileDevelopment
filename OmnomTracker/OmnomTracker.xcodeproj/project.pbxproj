@@ -36,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		3F1A24DF1FB36C3B00DC88EF /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		3F1A24E11FB37B7400DC88EF /* OmnomTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OmnomTracker.entitlements; sourceTree = "<group>"; };
 		3F64011F1F836E5A003038C2 /* OmnomTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnomTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6401241F836E5A003038C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3F6401271F836E5A003038C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		3F6401211F836E5A003038C2 /* OmnomTracker */ = {
 			isa = PBXGroup;
 			children = (
+				3F1A24E11FB37B7400DC88EF /* OmnomTracker.entitlements */,
 				56CDFCC81F9D238F0081E0DC /* Helpers */,
 				566BF5891F9CF13200054F7E /* Models */,
 				566BF5821F9CEF6300054F7E /* Repositories */,
@@ -231,8 +233,14 @@
 				TargetAttributes = {
 					3F64011E1F836E5A003038C2 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = LS433Z9T8B;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -493,7 +501,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_ENTITLEMENTS = OmnomTracker/OmnomTracker.entitlements;
+				DEVELOPMENT_TEAM = LS433Z9T8B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OmnomTracker",
@@ -515,7 +524,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_ENTITLEMENTS = OmnomTracker/OmnomTracker.entitlements;
+				DEVELOPMENT_TEAM = LS433Z9T8B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OmnomTracker",

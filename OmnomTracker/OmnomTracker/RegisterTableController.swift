@@ -11,7 +11,7 @@ import CoreData
 
 class RegisterTableController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     //passing data vars
-    var genderString = String()
+    var user = UserModel()
     
     @IBOutlet weak var heightField: UITextField!
     @IBOutlet weak var weightField: UITextField!
@@ -35,7 +35,7 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     var calorieGoal = Int16()
     var dateBirth = NSDate()
     var gender = String()
-    var userId = NSInteger()
+    var userId = Int32()
     var weightGoal = Float()
     
     //data
@@ -45,15 +45,10 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     var weightGoaldData = [Float]()
     var calorieGoaldData = [Int]()
     
-    
-   
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //tableView.layoutMargins = UIEdgeInsets.zero
-        tableView.separatorInset = UIEdgeInsets.zero
-        
+            
         //genderData wordt hierboven al genereert
         heightData = generateHeightData()
         weightData = generateWeightData()
@@ -67,7 +62,10 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
         craetePicker(field: weightGoaldField, picker: weightgoalPicker)
         craetePicker(field: calorieGoaldField, picker: calorieGoalPicker)
         
-        genderField.text = genderString
+        if !(user.gender?.isEmpty)! {
+            genderField.text = user.gender
+            gender = user.gender!
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,15 +79,11 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
         super.viewDidDisappear(animated)
     }
     
-    
     func putUserInDatabase() {
-        let user: User = NSEntityDescription.insertNewObject(forEntityName: "User", into: DatabaseController.persistentContainer.viewContext) as! User
-        
         user.height = height
         user.weight = weight
         user.calorieGoal = calorieGoal
-        //user.dateBirth = nil
-        user.gender = gender as String
+        user.gender = gender
         user.userId = 1
         user.weightGoal = weightGoal
         
@@ -234,8 +228,9 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
         }
     }
     
-    /*
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
         if identifier == "registrationFinishedSegue" {
             let isValid = self.isValid()
             if (!isValid) {
@@ -251,7 +246,7 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
         // by default, transition
         return true
     }
-    */
+ 
     func isValid() -> Bool {
         
         if(height != 0 && weight != 0 && calorieGoal != 0 && !gender.isEmpty && weightGoal != 0) {

@@ -32,10 +32,9 @@ class HomeTabBarController: UITabBarController, UIPickerViewDataSource, UIPicker
     }
 
     func putLogWeightInDatabase() {
-        var logRepo = LogRepository()
-        var logModel = LogModel()
+        let logRepo = LogRepository()
+        let logModel = LogModel()
         logModel.weight = weight
-
         
         //save food in repo
         logRepo.add(model: logModel)
@@ -51,7 +50,6 @@ class HomeTabBarController: UITabBarController, UIPickerViewDataSource, UIPicker
         }, completion: { (finished: Bool) in
             self.logWeightView.removeFromSuperview()
         })
-
     }
     
     func craetePicker(field: UITextField, picker: UIPickerView) {
@@ -88,7 +86,6 @@ class HomeTabBarController: UITabBarController, UIPickerViewDataSource, UIPicker
         self.navigationItem.backBarButtonItem = UIBarButtonItem()
         self.navigationItem.backBarButtonItem?.title = "Cancel"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Weight", style: .plain, target: self, action: #selector(logWeight))
- 
     }
     
     override func didReceiveMemoryWarning() {
