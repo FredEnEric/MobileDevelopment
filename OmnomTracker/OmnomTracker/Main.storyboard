@@ -407,7 +407,7 @@
         <!--Today-->
         <scene sceneID="s7Y-wd-vsd">
             <objects>
-                <viewController title="Today" automaticallyAdjustsScrollViewInsets="NO" id="Nke-21-gcJ" customClass="ViewMealViewController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Today" automaticallyAdjustsScrollViewInsets="NO" id="Nke-21-gcJ" customClass="TodayViewController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Bp-za-qJr"/>
                         <viewControllerLayoutGuide type="bottom" id="muC-Zf-Jb3"/>
@@ -640,7 +640,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RfB-f1-h50">
-                                <rect key="frame" x="16" y="94" width="343" height="133.5"/>
+                                <rect key="frame" x="16" y="50" width="343" height="133.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Omnomnom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfD-0h-7vE">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
@@ -711,7 +711,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eXH-Hd-13l">
-                                <rect key="frame" x="16" y="257.5" width="343" height="143"/>
+                                <rect key="frame" x="16" y="213.5" width="343" height="143"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutritional value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4we-w4-hr6">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
@@ -902,6 +902,6 @@
         <image name="icons8-home_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VCt-Gm-OeT"/>
+        <segue reference="yqP-H1-FxN"/>
     </inferredMetricsTieBreakers>
 </document>

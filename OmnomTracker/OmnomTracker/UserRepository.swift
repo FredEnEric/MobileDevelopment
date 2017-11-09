@@ -26,7 +26,6 @@ class UserRepository {
     }
     
     func get() -> User{
-        var user = User()
         
         let fetchRequest:NSFetchRequest<User> = User.fetchRequest()
         

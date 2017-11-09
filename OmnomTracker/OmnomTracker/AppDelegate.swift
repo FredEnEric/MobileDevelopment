@@ -28,13 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        
         if(user.userId==0){
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginPage")
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
-        }
-            
-        else{
+        } else {
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeTab")
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
