@@ -64,4 +64,25 @@ class FoodRepository {
         
         return foodList
     }
+    
+    func getAllToday() -> Array<Food>{
+        var foodList = [Food]()
+        
+        let fetchRequest:NSFetchRequest<Food> = Food.fetchRequest()
+        
+        do {
+            let foodResult = try DatabaseController.getContext().fetch(fetchRequest)
+            
+            for food in foodResult as [Food]{
+                //if(NSDate(food.date) == NSDate(Calendar.current)){
+                    foodList.append(food)
+                //}
+            }
+        }
+        catch {
+            print("Error: \(error)")
+        }
+        
+        return foodList
+    }
 }

@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        if(user.calorieGoal==0){
+        if(user.userId==0){
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginPage")
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()

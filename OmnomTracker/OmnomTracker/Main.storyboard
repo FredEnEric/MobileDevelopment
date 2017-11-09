@@ -422,28 +422,64 @@
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iz1-YG-ycB">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="2"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carbohydrates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpV-ed-1Sj">
-                                        <rect key="frame" x="0.0" y="10" width="113.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proteins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0G-g8-gDs">
-                                        <rect key="frame" x="0.0" y="38.5" width="63" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mir-jA-LXh">
-                                        <rect key="frame" x="0.0" y="67" width="32" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="BZQ-vg-9pp">
+                                        <rect key="frame" x="0.0" y="10" width="343" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Carbohydrates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpV-ed-1Sj">
+                                                <rect key="frame" x="0.0" y="0.0" width="301" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3L-WK-Ycn">
+                                                <rect key="frame" x="301" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="7oD-bf-Lae">
+                                        <rect key="frame" x="0.0" y="38.5" width="343" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Proteins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0G-g8-gDs">
+                                                <rect key="frame" x="0.0" y="0.0" width="301" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcJ-Wj-3hp">
+                                                <rect key="frame" x="301" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PI8-6V-Keb">
+                                        <rect key="frame" x="0.0" y="67" width="343" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Fats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mir-jA-LXh">
+                                                <rect key="frame" x="0.0" y="0.0" width="301" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvX-15-zwh">
+                                                <rect key="frame" x="301" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="iz1-YG-ycB" firstAttribute="leading" secondItem="3bj-xb-GXv" secondAttribute="leadingMargin" id="0nt-df-w4Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="PI8-6V-Keb" secondAttribute="trailing" id="Q4I-7e-WlX"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="iz1-YG-ycB" secondAttribute="trailing" id="T0R-ZY-Geu"/>
+                                    <constraint firstAttribute="trailing" secondItem="BZQ-vg-9pp" secondAttribute="trailing" id="eYk-Cz-7OR"/>
+                                    <constraint firstAttribute="trailing" secondItem="7oD-bf-Lae" secondAttribute="trailing" id="zTB-5R-IEV"/>
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x2D-sZ-VVu" customClass="MealTableView">
@@ -485,14 +521,52 @@
                     </view>
                     <navigationItem key="navigationItem" title="Today" id="WMe-er-AYk">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="HF1-vI-vjC"/>
-                        <barButtonItem key="leftBarButtonItem" title="Log Weight" id="7Kx-YP-5Sl"/>
                         <barButtonItem key="rightBarButtonItem" title="Log Meal" id="8Hb-7D-YgT"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="logWeightView" destination="5J6-NT-tHy" id="b1T-rx-g32"/>
                         <outlet property="tableView" destination="x2D-sZ-VVu" id="wTB-aZ-BNU"/>
+                        <outlet property="weightField" destination="lfH-EI-w9t" id="fGe-0c-wr7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxn-4v-hTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="5J6-NT-tHy">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log your weight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQq-29-giZ">
+                            <rect key="frame" x="50" y="20" width="140" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lfH-EI-w9t">
+                            <rect key="frame" x="72" y="49" width="97" height="30"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbi-mG-ZrE">
+                            <rect key="frame" x="97" y="87" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Log"/>
+                            <connections>
+                                <action selector="logWeightButton:" destination="Nke-21-gcJ" eventType="touchUpInside" id="wze-aN-Zge"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="NQq-29-giZ" secondAttribute="bottom" constant="87" id="2Pn-pG-MVi"/>
+                        <constraint firstItem="NQq-29-giZ" firstAttribute="top" secondItem="5J6-NT-tHy" secondAttribute="top" constant="20" id="6Je-bd-FDe"/>
+                        <constraint firstItem="NQq-29-giZ" firstAttribute="leading" secondItem="5J6-NT-tHy" secondAttribute="leading" constant="50" id="Hev-rT-B6y"/>
+                        <constraint firstItem="lfH-EI-w9t" firstAttribute="leading" secondItem="5J6-NT-tHy" secondAttribute="leading" constant="72" id="JtU-tu-Q6b"/>
+                        <constraint firstItem="lfH-EI-w9t" firstAttribute="top" secondItem="NQq-29-giZ" secondAttribute="bottom" constant="8" id="MH5-0A-0Kn"/>
+                        <constraint firstAttribute="bottom" secondItem="lfH-EI-w9t" secondAttribute="bottom" constant="49" id="UVD-aN-f5D"/>
+                        <constraint firstAttribute="trailing" secondItem="NQq-29-giZ" secondAttribute="trailing" constant="50" id="Yud-vy-M2x"/>
+                        <constraint firstAttribute="trailing" secondItem="lfH-EI-w9t" secondAttribute="trailing" constant="71" id="iuR-zR-Ndc"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="2920.8000000000002" y="52.623688155922046"/>
         </scene>
@@ -540,51 +614,12 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <outlet property="logWeightView" destination="5J6-NT-tHy" id="jQY-4n-c9A"/>
-                        <outlet property="weightField" destination="lfH-EI-w9t" id="X0q-av-8J3"/>
                         <segue destination="lWF-By-38J" kind="relationship" relationship="viewControllers" id="fiK-ab-yNq"/>
                         <segue destination="rTn-Ly-6oy" kind="relationship" relationship="viewControllers" id="JXU-CJ-IMu"/>
                         <segue destination="nhf-yZ-xOr" kind="relationship" relationship="viewControllers" id="jeZ-HP-EWd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYr-Dr-dwo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="5J6-NT-tHy">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log your weight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQq-29-giZ">
-                            <rect key="frame" x="50" y="20" width="140" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lfH-EI-w9t">
-                            <rect key="frame" x="72" y="49" width="97" height="30"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbi-mG-ZrE">
-                            <rect key="frame" x="97" y="87" width="46" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Log"/>
-                            <connections>
-                                <action selector="logWeightButton:" destination="QcR-jb-TtP" eventType="touchUpInside" id="wUC-j1-Oui"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="NQq-29-giZ" secondAttribute="bottom" constant="87" id="2Pn-pG-MVi"/>
-                        <constraint firstItem="NQq-29-giZ" firstAttribute="top" secondItem="5J6-NT-tHy" secondAttribute="top" constant="20" id="6Je-bd-FDe"/>
-                        <constraint firstItem="NQq-29-giZ" firstAttribute="leading" secondItem="5J6-NT-tHy" secondAttribute="leading" constant="50" id="Hev-rT-B6y"/>
-                        <constraint firstItem="lfH-EI-w9t" firstAttribute="leading" secondItem="5J6-NT-tHy" secondAttribute="leading" constant="72" id="JtU-tu-Q6b"/>
-                        <constraint firstItem="lfH-EI-w9t" firstAttribute="top" secondItem="NQq-29-giZ" secondAttribute="bottom" constant="8" id="MH5-0A-0Kn"/>
-                        <constraint firstAttribute="bottom" secondItem="lfH-EI-w9t" secondAttribute="bottom" constant="49" id="UVD-aN-f5D"/>
-                        <constraint firstAttribute="trailing" secondItem="NQq-29-giZ" secondAttribute="trailing" constant="50" id="Yud-vy-M2x"/>
-                        <constraint firstAttribute="trailing" secondItem="lfH-EI-w9t" secondAttribute="trailing" constant="71" id="iuR-zR-Ndc"/>
-                    </constraints>
-                </view>
             </objects>
             <point key="canvasLocation" x="1182" y="56"/>
         </scene>

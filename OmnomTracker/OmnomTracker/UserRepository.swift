@@ -31,9 +31,13 @@ class UserRepository {
         let fetchRequest:NSFetchRequest<User> = User.fetchRequest()
         
         do {
-            let result = try DatabaseController.getContext().fetch(fetchRequest)
-
-            user = result[0]
+            let results = try DatabaseController.getContext().fetch(fetchRequest)
+            for result in results {
+                if(result.userId != 0){
+                    user = result
+                    break
+                }
+            }
         }
         catch {
             print("Error: \(error)")

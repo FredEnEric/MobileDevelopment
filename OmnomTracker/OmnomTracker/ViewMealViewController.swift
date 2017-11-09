@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftCharts
-class ViewMealViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewMealViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource {
     var foodRepo = FoodRepository()
     
     var test = String()
@@ -22,40 +22,59 @@ class ViewMealViewController: UIViewController, UITableViewDataSource, UITableVi
     var sectionItems: Array<Any> = []
     var sectionNames: Array<Any> = []
     
+    //var
+    @IBOutlet var logWeightView: UIView!
+    @IBOutlet weak var weightField: UITextField!
+    var weight = Float(0.0)
+    var userRepo = UserRepository()
+    var user = User()
+    
+    //picker
+    var weightPicker = UIPickerView()
+    
+    //view
+    var blurEffectView: UIVisualEffectView!
+    
+    //data
+    var weightData = [Float]()
 
+    @IBAction func logWeightButton(_ sender: Any) {
+        if(weight != 0){
+            putLogWeightInDatabase()
+        }
+        animateOut()
+    }
     @IBOutlet weak var day: UINavigationItem!
     
     override func viewDidLoad() {
-      
-
         super.viewDidLoad()
-        //print(test)
-
+        self.automaticallyAdjustsScrollViewInsets = true
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         
         sectionNames = [ "Breakfast", "Lunch", "Dinner", "Snacks", "Drinks" ];
         sectionItems =
-        [
-            foodRepo.getFoodTitle(foodtype: 0), foodRepo.getFoodTitle(foodtype: 1), foodRepo.getFoodTitle(foodtype: 2), foodRepo.getFoodTitle(foodtype: 3), foodRepo.getFoodTitle(foodtype: 4)
+            [
+                foodRepo.getFoodTitle(foodtype: 0), foodRepo.getFoodTitle(foodtype: 1), foodRepo.getFoodTitle(foodtype: 2), foodRepo.getFoodTitle(foodtype: 3), foodRepo.getFoodTitle(foodtype: 4)
         ];
         self.tableView!.tableFooterView = UIView()
-       
-    }
-
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
+        weightData = generateWeightData()
+        craetePicker(field: weightField, picker: weightPicker)
+        
+        user = userRepo.get()
+        
         
         self.navigationController?.isNavigationBarHidden = false
-        /*
-        self.navigationItem.title = "Today"
-        self.navigationItem.backBarButtonItem = UIBarButtonItem()
-        self.navigationItem.backBarButtonItem?.title = "Cancel"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Weight", style: .plain, target: self, action: #selector())
-        self.navigationItem.rightBarButtonItem?.title = "Log Weight"
- */}
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log Weight", style: .plain, target: self, action: #selector(logWeight))
+        
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     
     public func changeDate() {
         print("date")
@@ -216,5 +235,99 @@ class ViewMealViewController: UIViewController, UITableViewDataSource, UITableVi
             self.tableView!.insertRows(at: indexesPath, with: UITableViewRowAnimation.fade)
             self.tableView!.endUpdates()
         }
+    }
+    
+    func logWeight() {
+        addBlurToView()
+        
+        logWeightView.layer.cornerRadius = 5
+        self.view.addSubview(logWeightView)
+        logWeightView.center = self.view.center
+        logWeightView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        logWeightView.alpha = 0
+        
+        UIView.animate(withDuration: 0.4){
+            self.logWeightView.alpha = 1
+            self.logWeightView.transform = CGAffineTransform.identity
+        }
+        
+    }
+    
+    func addBlurToView() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(blurEffectView)
+    }
+    
+    func generateWeightData() -> Array<Float> {
+        //declare array
+        var weightArray = [Float]()
+        
+        //add each item in array
+        for weight in stride(from: 25.0, to: 200.0, by: 0.1) {
+            weightArray.append(Float(weight))
+        }
+        
+        return weightArray
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return weightData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        weightField.text = String(weightData[row]) + " kg"
+        weight = Float(weightData[row])
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(weightData[row]) + " kg"
+    }
+    
+    
+    func putLogWeightInDatabase() {
+        let logRepo = LogRepository()
+        let logModel = LogModel()
+        logModel.weight = weight
+        
+        //save food in repo
+        logRepo.add(model: logModel)
+    }
+    
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.logWeightView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.logWeightView.alpha = 0
+            self.blurEffectView.effect = nil
+            self.blurEffectView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        }, completion: { (finished: Bool) in
+            self.logWeightView.removeFromSuperview()
+        })
+    }
+    
+    func craetePicker(field: UITextField, picker: UIPickerView) {
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressing))
+        toolbar.setItems([done], animated: false)
+        field.inputAccessoryView = toolbar
+        
+        picker.delegate = self
+        picker.dataSource = self
+        
+        field.inputView = picker
+    }
+    
+    @objc func donePressing(){
+        self.view.endEditing(true)
     }
 }
