@@ -22,21 +22,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // Override point for customization after application launch.
         
-        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let userRepo = UserRepository()
+        let user = userRepo.get()
         
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeTab")
-        
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
+        if(user.calorieGoal==0){
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginPage")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
+            
+        else{
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeTab")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
+    
         
         //let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         //print(urls[urls.count-1] as URL);
-        
-        //sqlite file:
-        //sinasi: Users/sinasiyilmaz/Library/Developer/CoreSimulator/Devices/1A5AE22D-AB0D-4678-8DCD-09A8F3CC76AB/data/Containers/Data/Application/DA9BC3C2-8ECC-4091-91CE-F07040229EF8/
-        // frederic: /Users/student/Library/Developer/CoreSimulator/Devices/8F7F6A22-9A79-412B-A6A6-9BA4CE1DD341/data/Containers/Data/Application/5F701644-A60E-48E3-BE8D-424DEEA9A1B4/
+
         return true
     }
     

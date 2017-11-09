@@ -79,15 +79,15 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     }
     
     func putUserInDatabase() {
-        user.height = height
-        user.weight = weight
-        user.calorieGoal = calorieGoal
-        user.gender = gender
-        user.userId = 1
-        user.weightGoal = weightGoal
-        
-        //save user in DB
-        DatabaseController.saveContext()
+        let userModel = UserModel()
+        let userRepo = UserRepository()
+        userModel.height = height
+        userModel.weight = weight
+        userModel.calorieGoal = calorieGoal
+        userModel.gender = gender
+        userModel.userId = 1
+        userModel.weightGoal = weightGoal
+        userRepo.add(model: userModel)
     }
     
     func createDatePicker() {
