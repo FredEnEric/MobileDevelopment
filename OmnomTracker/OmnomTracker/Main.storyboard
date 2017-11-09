@@ -10,29 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Splash View Controller-->
-        <scene sceneID="oob-Em-PN3">
-            <objects>
-                <viewController id="kdo-uH-1nc" customClass="SplashViewController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oeR-RQ-9Kj"/>
-                        <viewControllerLayoutGuide type="bottom" id="0lC-88-CDn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EHA-D8-Y2f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="3HY-Sj-B5n"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="firstStartSegue" id="TP2-BP-JDt"/>
-                        <segue destination="QcR-jb-TtP" kind="show" identifier="skipRegistrationSegue" id="yaX-tv-zZj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fvc-hC-1gG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-702" y="-663"/>
-        </scene>
         <!--LoginView-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -46,13 +23,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9MP-5L-8fw">
-                                <rect key="frame" x="16" y="72" width="343" height="595"/>
+                                <rect key="frame" x="16" y="28" width="343" height="639"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="hMK-cW-Xi4">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="297.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="319.5"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aAD-U8-rYj">
-                                        <rect key="frame" x="0.0" y="297.5" width="343" height="297.5"/>
+                                        <rect key="frame" x="0.0" y="319.5" width="343" height="319.5"/>
                                         <subviews>
                                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="a0Q-B4-kwo" customClass="FBSDKLoginButton">
                                                 <rect key="frame" x="27.5" y="0.0" width="288" height="30"/>
@@ -62,7 +39,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t7a-GG-BqT">
-                                                <rect key="frame" x="93" y="38" width="157.5" height="259.5"/>
+                                                <rect key="frame" x="93" y="38" width="157.5" height="281.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I don't have Facebook" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gk-QM-AhN">
                                                         <rect key="frame" x="0.0" y="0.0" width="105.5" height="24"/>
@@ -556,7 +533,7 @@
         <!--Home Tab Bar Controller-->
         <scene sceneID="Jl5-Wc-YyS">
             <objects>
-                <tabBarController id="QcR-jb-TtP" customClass="HomeTabBarController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeTab" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QcR-jb-TtP" customClass="HomeTabBarController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Pud-Uc-G6i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -819,7 +796,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KJK-2K-Dbl">
-                                <rect key="frame" x="16" y="104" width="343" height="128.5"/>
+                                <rect key="frame" x="16" y="60" width="343" height="128.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JYs-Fv-63l">
                                         <rect key="frame" x="0.0" y="0.0" width="128.5" height="128.5"/>
@@ -860,7 +837,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7q-gx-zUN" customClass="ShinobiChart">
-                                <rect key="frame" x="16" y="274" width="343" height="310"/>
+                                <rect key="frame" x="16" y="230" width="343" height="354"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>

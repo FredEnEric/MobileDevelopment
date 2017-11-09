@@ -22,10 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // Override point for customization after application launch.
         
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        print(urls[urls.count-1] as URL);
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeTab")
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        
+        //let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        //print(urls[urls.count-1] as URL);
         
         //sqlite file:
         //sinasi: Users/sinasiyilmaz/Library/Developer/CoreSimulator/Devices/1A5AE22D-AB0D-4678-8DCD-09A8F3CC76AB/data/Containers/Data/Application/DA9BC3C2-8ECC-4091-91CE-F07040229EF8/
