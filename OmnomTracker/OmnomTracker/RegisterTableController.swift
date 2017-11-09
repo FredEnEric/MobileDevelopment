@@ -62,7 +62,7 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
         craetePicker(field: weightGoaldField, picker: weightgoalPicker)
         craetePicker(field: calorieGoaldField, picker: calorieGoalPicker)
         
-        if user.gender != "" {
+        if user.gender != nil {
             genderField.text = user.gender
             gender = user.gender!
         }

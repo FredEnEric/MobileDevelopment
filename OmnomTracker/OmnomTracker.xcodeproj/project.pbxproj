@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3F1A24E01FB36C3B00DC88EF /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1A24DF1FB36C3B00DC88EF /* UserModel.swift */; };
-		3F1A24E71FB3A45300DC88EF /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1A24E61FB3A45300DC88EF /* SplashViewController.swift */; };
 		3F6401251F836E5A003038C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6401241F836E5A003038C2 /* ViewController.swift */; };
 		3F64012A1F836E5B003038C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F6401291F836E5B003038C2 /* Assets.xcassets */; };
 		3F64012D1F836E5B003038C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F64012B1F836E5B003038C2 /* LaunchScreen.storyboard */; };
@@ -20,8 +19,8 @@
 		3FD4DA361FB089C200A02AA0 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4DA351FB089C200A02AA0 /* DayViewController.swift */; };
 		562F75091FB2148300675FE5 /* LogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F75081FB2148300675FE5 /* LogModel.swift */; };
 		5642591C1F8CC786000C6F23 /* LogMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5642591B1F8CC786000C6F23 /* LogMealViewController.swift */; };
-		5642591E1F8CC7B9000C6F23 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */; };
-		566BF57E1F9CE43A00054F7E /* ViewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF57D1F9CE43A00054F7E /* ViewMealViewController.swift */; };
+		5642591E1F8CC7B9000C6F23 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5642591D1F8CC7B9000C6F23 /* ProgressViewController.swift */; };
+		566BF57E1F9CE43A00054F7E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF57D1F9CE43A00054F7E /* TodayViewController.swift */; };
 		566BF5811F9CE74F00054F7E /* Lunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF5801F9CE74F00054F7E /* Lunch.swift */; };
 		566BF5841F9CEF7300054F7E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF5831F9CEF7300054F7E /* UserRepository.swift */; };
 		566BF5861F9CEF8200054F7E /* FoodRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF5851F9CEF8200054F7E /* FoodRepository.swift */; };
@@ -41,7 +40,6 @@
 /* Begin PBXFileReference section */
 		3F1A24DF1FB36C3B00DC88EF /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3F1A24E11FB37B7400DC88EF /* OmnomTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OmnomTracker.entitlements; sourceTree = "<group>"; };
-		3F1A24E61FB3A45300DC88EF /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		3F64011F1F836E5A003038C2 /* OmnomTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnomTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6401241F836E5A003038C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3F6401291F836E5B003038C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,8 +54,8 @@
 		3FD4DA351FB089C200A02AA0 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		562F75081FB2148300675FE5 /* LogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogModel.swift; sourceTree = "<group>"; };
 		5642591B1F8CC786000C6F23 /* LogMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMealViewController.swift; sourceTree = "<group>"; };
-		5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		566BF57D1F9CE43A00054F7E /* ViewMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMealViewController.swift; sourceTree = "<group>"; };
+		5642591D1F8CC7B9000C6F23 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		566BF57D1F9CE43A00054F7E /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		566BF5801F9CE74F00054F7E /* Lunch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lunch.swift; sourceTree = "<group>"; };
 		566BF5831F9CEF7300054F7E /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		566BF5851F9CEF8200054F7E /* FoodRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodRepository.swift; sourceTree = "<group>"; };
@@ -153,15 +151,14 @@
 		564259151F8CC5E4000C6F23 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3F1A24E61FB3A45300DC88EF /* SplashViewController.swift */,
 				3F6401241F836E5A003038C2 /* ViewController.swift */,
 				3FB2116A1F925413005F8418 /* RegisterTableController.swift */,
 				3FB211681F923EE7005F8418 /* HomeTabBarController.swift */,
 				56A94AD61F8A93B200B54B47 /* DatabaseController.swift */,
-				566BF57D1F9CE43A00054F7E /* ViewMealViewController.swift */,
+				566BF57D1F9CE43A00054F7E /* TodayViewController.swift */,
 				3FB2116E1F9608A6005F8418 /* SearchTableViewController.swift */,
 				5642591B1F8CC786000C6F23 /* LogMealViewController.swift */,
-				5642591D1F8CC7B9000C6F23 /* ProfileViewController.swift */,
+				5642591D1F8CC7B9000C6F23 /* ProgressViewController.swift */,
 				3FD4DA331FB078EF00A02AA0 /* HistoryTableViewController.swift */,
 				3FD4DA351FB089C200A02AA0 /* DayViewController.swift */,
 			);
@@ -388,11 +385,10 @@
 				3FB2116F1F9608A6005F8418 /* SearchTableViewController.swift in Sources */,
 				56DF7D841FAF610500923AE4 /* UIColor.swift in Sources */,
 				3FD4DA341FB078EF00A02AA0 /* HistoryTableViewController.swift in Sources */,
-				5642591E1F8CC7B9000C6F23 /* ProfileViewController.swift in Sources */,
+				5642591E1F8CC7B9000C6F23 /* ProgressViewController.swift in Sources */,
 				5642591C1F8CC786000C6F23 /* LogMealViewController.swift in Sources */,
 				3F1A24E01FB36C3B00DC88EF /* UserModel.swift in Sources */,
-				566BF57E1F9CE43A00054F7E /* ViewMealViewController.swift in Sources */,
-				3F1A24E71FB3A45300DC88EF /* SplashViewController.swift in Sources */,
+				566BF57E1F9CE43A00054F7E /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

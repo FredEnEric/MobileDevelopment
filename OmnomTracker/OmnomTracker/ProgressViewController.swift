@@ -8,14 +8,17 @@
 
 import UIKit
 import SwiftCharts
+import Alamofire
 
-class ProfileViewController: UIViewController {
+class ProgressViewController: UIViewController {
     @IBOutlet weak var chart: ShinobiChart!
     
     var logRepo = LogRepository()
     //var resultLogs = [Float]()
 
     var logData: [(item: String, massa: Float)] = []
+    
+    var user = User()
     
     func setupChart() {
         let resultLogs = logRepo.getAllLogs()
@@ -42,20 +45,12 @@ class ProfileViewController: UIViewController {
         
         view.addSubview(chart)
     }
-
-    
-    var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupChart()
         // Do any additional setup after loading the view.
-        let repo = UserRepository()
-        user = repo.get()
-        print(user.profilePicUrl)
-        print(user.gender)
-        print(user.calorieGoal)
+        setupChart()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,7 +71,7 @@ class ProfileViewController: UIViewController {
 }
 
 // MARK:- SChartDatasource Functions
-extension ProfileViewController: SChartDatasource {
+extension ProgressViewController: SChartDatasource {
     
     func numberOfSeries(in chart: ShinobiChart) -> Int {
         return 1
@@ -115,7 +110,7 @@ extension ProfileViewController: SChartDatasource {
 }
 
 // MARK:- SChartDelegate Functions
-extension ProfileViewController: SChartDelegate {
+extension ProgressViewController: SChartDelegate {
     
     func sChart(_ chart: ShinobiChart, alter label: SChartDataPointLabel, for dataPoint: SChartDataPoint, in series: SChartSeries) {
 

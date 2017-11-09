@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftCharts
-class ViewMealViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource {
+class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource {
     var foodRepo = FoodRepository()
     
     var test = String()
@@ -152,7 +152,7 @@ class ViewMealViewController: UIViewController, UIPickerViewDataSource, UIPicker
         // make headers touchable
         header.tag = section
         let headerTapGesture = UITapGestureRecognizer()
-        headerTapGesture.addTarget(self, action: #selector(ViewMealViewController.sectionHeaderWasTouched(_:)))
+        headerTapGesture.addTarget(self, action: #selector(TodayViewController.sectionHeaderWasTouched(_:)))
         header.addGestureRecognizer(headerTapGesture)
         
         // give headers a border
