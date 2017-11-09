@@ -407,7 +407,7 @@
         <!--Today-->
         <scene sceneID="s7Y-wd-vsd">
             <objects>
-                <viewController title="Today" id="Nke-21-gcJ" customClass="TodayViewController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Today" automaticallyAdjustsScrollViewInsets="NO" id="Nke-21-gcJ" customClass="ViewMealViewController" customModule="OmnomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Bp-za-qJr"/>
                         <viewControllerLayoutGuide type="bottom" id="muC-Zf-Jb3"/>
@@ -426,15 +426,15 @@
                                         <rect key="frame" x="0.0" y="10" width="343" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Carbohydrates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpV-ed-1Sj">
-                                                <rect key="frame" x="0.0" y="0.0" width="301" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="301.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3L-WK-Ycn">
-                                                <rect key="frame" x="301" y="0.0" width="42" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="301.5" y="0.0" width="41.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                                <color key="textColor" red="0.050439342509372626" green="0.003371624208027421" blue="0.067580148963730546" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -443,14 +443,14 @@
                                         <rect key="frame" x="0.0" y="38.5" width="343" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Proteins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0G-g8-gDs">
-                                                <rect key="frame" x="0.0" y="0.0" width="301" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="301.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcJ-Wj-3hp">
-                                                <rect key="frame" x="301" y="0.0" width="42" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="301.5" y="0.0" width="41.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -460,14 +460,14 @@
                                         <rect key="frame" x="0.0" y="67" width="343" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Fats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mir-jA-LXh">
-                                                <rect key="frame" x="0.0" y="0.0" width="301" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="301.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvX-15-zwh">
-                                                <rect key="frame" x="301" y="0.0" width="42" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="301.5" y="0.0" width="41.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -524,7 +524,11 @@
                         <barButtonItem key="rightBarButtonItem" title="Log Meal" id="8Hb-7D-YgT"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="carbsLabel" destination="w3L-WK-Ycn" id="NRY-FY-Xco"/>
+                        <outlet property="fatLabel" destination="DvX-15-zwh" id="zID-lA-NUr"/>
                         <outlet property="logWeightView" destination="5J6-NT-tHy" id="b1T-rx-g32"/>
+                        <outlet property="progresBarView" destination="iz1-YG-ycB" id="5pA-8Z-KeD"/>
+                        <outlet property="proteinLabel" destination="vcJ-Wj-3hp" id="Gp3-H8-LUR"/>
                         <outlet property="tableView" destination="x2D-sZ-VVu" id="wTB-aZ-BNU"/>
                         <outlet property="weightField" destination="lfH-EI-w9t" id="fGe-0c-wr7"/>
                     </connections>
@@ -799,7 +803,7 @@
                     <navigationItem key="navigationItem" title="Log meal" id="0Sl-jX-yBQ">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="bKI-ie-qAQ">
                             <connections>
-                                <segue destination="QcR-jb-TtP" kind="show" identifier="logMealFinishedSegue" id="iXL-Hh-MMm"/>
+                                <segue destination="Nke-21-gcJ" kind="show" id="VCt-Gm-OeT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -898,6 +902,6 @@
         <image name="icons8-home_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kSc-v6-Dpi"/>
+        <segue reference="VCt-Gm-OeT"/>
     </inferredMetricsTieBreakers>
 </document>

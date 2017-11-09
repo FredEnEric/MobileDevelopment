@@ -10,7 +10,7 @@ import UIKit
 import SwiftCharts
 class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource {
     var foodRepo = FoodRepository()
-    
+    var userRepo = UserRepository()
     var test = String()
     var foodList = [String]()
     
@@ -26,9 +26,13 @@ class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     @IBOutlet var logWeightView: UIView!
     @IBOutlet weak var weightField: UITextField!
     var weight = Float(0.0)
-    var userRepo = UserRepository()
+    var food = Food()
     var user = User()
     
+    @IBOutlet weak var progresBarView: UIProgressView!
+    @IBOutlet weak var fatLabel: UILabel!
+    @IBOutlet weak var proteinLabel: UILabel!
+    @IBOutlet weak var carbsLabel: UILabel!
     //picker
     var weightPicker = UIPickerView()
     
@@ -64,9 +68,6 @@ class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         weightData = generateWeightData()
         craetePicker(field: weightField, picker: weightPicker)
         
-        user = userRepo.get()
-        
-        
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log Weight", style: .plain, target: self, action: #selector(logWeight))
         
@@ -74,11 +75,26 @@ class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        user = userRepo.get()
+        var sumCalories = foodRepo.getAllCaloriesToday()
+        var sumCarbs = foodRepo.getAllCarbohydratesToday()
+        var sumFats = foodRepo.getAllFatsToday()
+        var sumProteins = foodRepo.getAllProteinToday()
+        
+        carbsLabel.text = String(sumCarbs) + " gram"
+        fatLabel.text = String(sumFats) + " gram"
+        proteinLabel.text = String(sumProteins) + " gram"
+
+        if(sumCalories < Float(user.calorieGoal)){
+            progresBarView.progress = sumCalories / Float(user.calorieGoal)
+        }
+        else {
+            progresBarView.progress = 1
+        }
+
+        
     }
-    
-    public func changeDate() {
-        print("date")
-    }
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         //self.navigationItem.setHidesBackButton(false, animated: false)
