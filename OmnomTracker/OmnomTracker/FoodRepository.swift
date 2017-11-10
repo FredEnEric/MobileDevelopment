@@ -43,161 +43,78 @@ class FoodRepository {
         return foodList
     }
     
-    func getFoodTitle(foodtype: Int32) -> Array<String> {
-        var foodList = [String]()
-        
-        let fetchRequest:NSFetchRequest<Food> = Food.fetchRequest()
-        
-        do {
-            let foodResult = try DatabaseController.getContext().fetch(fetchRequest)
-            
-            for food in foodResult as [Food]{
-                if(food.name?.isEmpty == false && food.lunch == foodtype){
-                    foodList.append(food.name!)
-                }
-                
-            }
-        }
-        catch {
-            print("Error: \(error)")
-        }
-        
-        return foodList
-    }
-    
-    func getAllCaloriesToday() -> Float{
-        var caloriesList = [Float]()
-        
-        let fetchRequest:NSFetchRequest<Food> = Food.fetchRequest()
+    func getFoodToday() -> [Food] {
+        let allFoods = getAll()
+        var foodToday = [Food]()
         
         let keyDateFormat = DateFormatter()
         keyDateFormat.dateFormat = "yyyyMMdd"
+        let key = keyDateFormat.string(from: NSDate() as Date)
         
-        var keys = [Int]()
-        var store = [Int: [Food]]()
-        do {
-            let foodResult = try DatabaseController.getContext().fetch(fetchRequest)
-            
-            for food in foodResult {
-                guard let date = food.date as Date? else {
-                    // date is nil, ignore this entry:
-                    continue
+        for food in allFoods {
+            if let date = food.date as Date? {
+                if key == keyDateFormat.string(from: date) {
+                    foodToday.append(food)
                 }
-                let key = Int(keyDateFormat.string(from: NSDate() as Date))!
-                if (store[key] == nil) {
-                    store[key] = [Food]()
-                }
-                caloriesList.append(Float(food.calories))
             }
-
         }
-        catch {
-            print("Error: \(error)")
-        }
+        return foodToday
+    }
+    
+    func getFoodTitle(foodtype: Int32) -> Array<String> {
+        let foods = getFoodToday()
+        var foodList = [String]()
         
+        for food in foods {
+            if(food.name?.isEmpty == false && food.lunch == foodtype){
+                foodList.append(food.name!)
+            }
+        }
+
+        return foodList
+    }
+    
+    func getAllCaloriesToday() -> Int32{
+        let foods = getFoodToday()
+        var caloriesList = [Int32]()
+            
+        for food in foods {
+            print(food.portions)
+            caloriesList.append(Int32(food.portions) * food.calories)
+        }
 
         return caloriesList.reduce(0, +)
     }
     
     func getAllCarbohydratesToday() -> Float{
+        let foods = getFoodToday()
         var carbohydratesList = [Float]()
         
-        let fetchRequest:NSFetchRequest<Food> = Food.fetchRequest()
-        
-        let keyDateFormat = DateFormatter()
-        keyDateFormat.dateFormat = "yyyyMMdd"
-        
-        var keys = [Int]()
-        var store = [Int: [Food]]()
-        do {
-            let foodResult = try DatabaseController.getContext().fetch(fetchRequest)
-            
-            for food in foodResult {
-                guard let date = food.date as Date? else {
-                    // date is nil, ignore this entry:
-                    continue
-                }
-                let key = Int(keyDateFormat.string(from: NSDate() as Date))!
-                if (store[key] == nil) {
-                    store[key] = [Food]()
-                }
-                carbohydratesList.append(Float(food.carbs))
-            }
-            
+        for food in foods {
+            carbohydratesList.append(Float(food.portions) * food.carbs)
         }
-        catch {
-            print("Error: \(error)")
-        }
-        
         
         return carbohydratesList.reduce(0, +)
     }
 
     func getAllFatsToday() -> Float{
+        let foods = getFoodToday()
         var fatList = [Float]()
         
-        let fetchRequest:NSFetchRequest<Food> = Food.fetchRequest()
-        
-        let keyDateFormat = DateFormatter()
-        keyDateFormat.dateFormat = "yyyyMMdd"
-        
-        var keys = [Int]()
-        var store = [Int: [Food]]()
-        do {
-            let foodResult = try DatabaseController.getContext().fetch(fetchRequest)
-            
-            for food in foodResult {
-                guard let date = food.date as Date? else {
-                    // date is nil, ignore this entry:
-                    continue
-                }
-                let key = Int(keyDateFormat.string(from: NSDate() as Date))!
-                if (store[key] == nil) {
-                    store[key] = [Food]()
-                }
-                fatList.append(Float(food.fat))
-            }
-            
+        for food in foods {
+            fatList.append(Float(food.portions) * food.fat)
         }
-        catch {
-            print("Error: \(error)")
-        }
-        
         
         return fatList.reduce(0, +)
     }
     
     func getAllProteinToday() -> Float{
+        let foods = getFoodToday()
         var proteinList = [Float]()
         
-        let fetchRequest:NSFetchRequest<Food> = Food.fetchRequest()
-        
-        let keyDateFormat = DateFormatter()
-        keyDateFormat.dateFormat = "yyyyMMdd"
-        
-        var keys = [Int]()
-        var store = [Int: [Food]]()
-        do {
-            let foodResult = try DatabaseController.getContext().fetch(fetchRequest)
-            
-            for food in foodResult {
-                guard let date = food.date as Date? else {
-                    // date is nil, ignore this entry:
-                    continue
-                }
-                let key = Int(keyDateFormat.string(from: NSDate() as Date))!
-                if (store[key] == nil) {
-                    store[key] = [Food]()
-                }
-                //store[key]?.append(food)
-                proteinList.append(Float(food.protein))
-            }
-            
+        for food in foods {
+            proteinList.append(Float(food.portions) * food.protein)
         }
-        catch {
-            print("Error: \(error)")
-        }
-        
         
         return proteinList.reduce(0, +)
     }
