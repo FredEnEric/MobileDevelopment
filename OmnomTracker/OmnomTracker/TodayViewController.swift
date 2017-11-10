@@ -11,7 +11,6 @@ import SwiftCharts
 class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource {
     var foodRepo = FoodRepository()
     var userRepo = UserRepository()
-    var test = String()
     var foodList = [String]()
     
     let kHeaderSectionTag: Int = 6900;
@@ -70,11 +69,18 @@ class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         user = userRepo.get()
-        let sumCalories = foodRepo.getAllCaloriesToday()
-        let sumCarbs = foodRepo.getAllCarbohydratesToday()
-        let sumFats = foodRepo.getAllFatsToday()
-        let sumProteins = foodRepo.getAllProteinToday()
+        let foods = foodRepo.getFoodToday()
+        var sumCalories : Int32 = 0
+        var sumCarbs : Float = 0
+        var sumFats : Float = 0
+        var sumProteins : Float = 0
         
+        for food in foods {
+            sumCalories += Int32(food.portions) * food.calories
+            sumCarbs += Float(food.portions) * food.carbs
+            sumFats += Float(food.portions) * food.fat
+            sumProteins += Float(food.portions) * food.protein
+        }
         
         carbsLabel.text = String(sumCarbs) + " gram"
         fatLabel.text = String(sumFats) + " gram"

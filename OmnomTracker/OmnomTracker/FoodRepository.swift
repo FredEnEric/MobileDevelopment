@@ -73,50 +73,5 @@ class FoodRepository {
 
         return foodList
     }
-    
-    func getAllCaloriesToday() -> Int32{
-        let foods = getFoodToday()
-        var caloriesList = [Int32]()
-            
-        for food in foods {
-            print(food.portions)
-            caloriesList.append(Int32(food.portions) * food.calories)
-        }
-
-        return caloriesList.reduce(0, +)
-    }
-    
-    func getAllCarbohydratesToday() -> Float{
-        let foods = getFoodToday()
-        var carbohydratesList = [Float]()
-        
-        for food in foods {
-            carbohydratesList.append(Float(food.portions) * food.carbs)
-        }
-        
-        return carbohydratesList.reduce(0, +)
-    }
-
-    func getAllFatsToday() -> Float{
-        let foods = getFoodToday()
-        var fatList = [Float]()
-        
-        for food in foods {
-            fatList.append(Float(food.portions) * food.fat)
-        }
-        
-        return fatList.reduce(0, +)
-    }
-    
-    func getAllProteinToday() -> Float{
-        let foods = getFoodToday()
-        var proteinList = [Float]()
-        
-        for food in foods {
-            proteinList.append(Float(food.portions) * food.protein)
-        }
-        
-        return proteinList.reduce(0, +)
-    }
 
 }
