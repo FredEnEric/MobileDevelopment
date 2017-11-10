@@ -32,7 +32,6 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = true
         
-        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -56,10 +55,10 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             sumFats += Float(food.portions) * food.fat
             sumProteins += Float(food.portions) * food.protein
         }
-        
-        carbsLabel.text = String(sumCarbs) + " gram"
-        fatLabel.text = String(sumFats) + " gram"
-        proteinLabel.text = String(sumProteins) + " gram"
+
+        carbsLabel.text = String(Int32(sumCarbs.rounded())) + " grams"
+        fatLabel.text = String(Int32(sumFats.rounded())) + " grams"
+        proteinLabel.text = String(Int32(sumProteins.rounded())) + " grams"
         
         if(sumCalories < Int32(user.calorieGoal)){
             progresBarView.progress = Float(sumCalories) / Float(user.calorieGoal)
@@ -69,6 +68,8 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
 
         sectionItems = [foods.filter{$0.lunch == 0}, foods.filter{$0.lunch == 1}, foods.filter{$0.lunch == 2}, foods.filter{$0.lunch == 3}, foods.filter{$0.lunch == 4}]
+ 
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {

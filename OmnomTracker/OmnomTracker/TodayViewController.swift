@@ -82,9 +82,9 @@ class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             sumProteins += Float(food.portions) * food.protein
         }
         
-        carbsLabel.text = String(sumCarbs) + " gram"
-        fatLabel.text = String(sumFats) + " gram"
-        proteinLabel.text = String(sumProteins) + " gram"
+        carbsLabel.text = String(Int32(sumCarbs.rounded())) + " grams"
+        fatLabel.text = String(Int32(sumFats.rounded())) + " grams"
+        proteinLabel.text = String(Int32(sumProteins.rounded())) + " grams"
 
         if(sumCalories < Int32(user.calorieGoal)){
             progresBarView.progress = Float(sumCalories) / Float(user.calorieGoal)
@@ -180,6 +180,7 @@ class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as UITableViewCell
         let section = self.sectionItems[indexPath.section] as! NSArray
+        print(section)
         cell.textLabel?.textColor = UIColor.black
         cell.textLabel?.text = section[indexPath.row] as? String
         
