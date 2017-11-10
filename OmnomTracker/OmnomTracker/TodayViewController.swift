@@ -20,7 +20,7 @@ class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     var expandedSectionHeaderNumber: Int = -1
     var expandedSectionHeader: UITableViewHeaderFooterView!
     var sectionItems: Array<Any> = []
-    var sectionNames: Array<Any> = []
+    var sectionNames: Array<Any> = [ "Breakfast", "Lunch", "Dinner", "Snacks", "Drinks" ]
     
     //var
     @IBOutlet var logWeightView: UIView!
@@ -56,13 +56,7 @@ class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
-        sectionNames = [ "Breakfast", "Lunch", "Dinner", "Snacks", "Drinks" ];
-        sectionItems =
-            [
-                foodRepo.getFoodTitle(foodtype: 0), foodRepo.getFoodTitle(foodtype: 1), foodRepo.getFoodTitle(foodtype: 2), foodRepo.getFoodTitle(foodtype: 3), foodRepo.getFoodTitle(foodtype: 4)
-        ];
+
         self.tableView!.tableFooterView = UIView()
         
         weightData = generateWeightData()
@@ -76,23 +70,24 @@ class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         user = userRepo.get()
-        var sumCalories = foodRepo.getAllCaloriesToday()
-        var sumCarbs = foodRepo.getAllCarbohydratesToday()
-        var sumFats = foodRepo.getAllFatsToday()
-        var sumProteins = foodRepo.getAllProteinToday()
+        let sumCalories = foodRepo.getAllCaloriesToday()
+        let sumCarbs = foodRepo.getAllCarbohydratesToday()
+        let sumFats = foodRepo.getAllFatsToday()
+        let sumProteins = foodRepo.getAllProteinToday()
+        
         
         carbsLabel.text = String(sumCarbs) + " gram"
         fatLabel.text = String(sumFats) + " gram"
         proteinLabel.text = String(sumProteins) + " gram"
 
-        if(sumCalories < Float(user.calorieGoal)){
-            progresBarView.progress = sumCalories / Float(user.calorieGoal)
+        if(sumCalories < Int32(user.calorieGoal)){
+            progresBarView.progress = Float(sumCalories) / Float(user.calorieGoal)
         }
         else {
             progresBarView.progress = 1
         }
 
-        
+        sectionItems = [ foodRepo.getFoodTitle(foodtype: 0), foodRepo.getFoodTitle(foodtype: 1), foodRepo.getFoodTitle(foodtype: 2), foodRepo.getFoodTitle(foodtype: 3), foodRepo.getFoodTitle(foodtype: 4) ] 
     }
 
     override func viewDidDisappear(_ animated: Bool) {

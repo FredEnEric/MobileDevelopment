@@ -388,15 +388,6 @@
                     <view key="view" contentMode="scaleToFill" id="GDH-Gm-cyr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TH-ej-DrX">
-                                <rect key="frame" x="127" y="280" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -417,7 +408,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3bj-xb-GXv">
-                                <rect key="frame" x="16" y="79" width="343" height="87.5"/>
+                                <rect key="frame" x="16" y="35" width="343" height="87.5"/>
                                 <subviews>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iz1-YG-ycB">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="2"/>
@@ -483,7 +474,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x2D-sZ-VVu" customClass="MealTableView">
-                                <rect key="frame" x="0.0" y="182" width="375" height="390"/>
+                                <rect key="frame" x="0.0" y="182" width="375" height="485"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableCell" id="vFn-hF-AUG">
@@ -496,32 +487,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqy-2B-5Lx">
-                                <rect key="frame" x="154" y="580" width="67" height="30"/>
-                                <state key="normal" title="Log meal"/>
-                                <connections>
-                                    <segue destination="g4O-eE-5ci" kind="show" id="6aA-80-LCh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="muC-Zf-Jb3" firstAttribute="top" secondItem="Wqy-2B-5Lx" secondAttribute="bottom" constant="8" id="99Y-QM-tdJ"/>
+                            <constraint firstItem="muC-Zf-Jb3" firstAttribute="top" secondItem="x2D-sZ-VVu" secondAttribute="bottom" id="976-Yd-ElV"/>
                             <constraint firstItem="x2D-sZ-VVu" firstAttribute="leading" secondItem="EvR-zf-d2e" secondAttribute="leading" id="Ent-le-BEs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Wqy-2B-5Lx" secondAttribute="trailing" constant="138" id="MqV-SI-Yc6"/>
+                            <constraint firstItem="3bj-xb-GXv" firstAttribute="top" secondItem="6Bp-za-qJr" secondAttribute="bottom" constant="15" id="R3m-tH-AWR"/>
                             <constraint firstItem="3bj-xb-GXv" firstAttribute="leading" secondItem="EvR-zf-d2e" secondAttribute="leadingMargin" id="VzU-WF-feh"/>
-                            <constraint firstItem="muC-Zf-Jb3" firstAttribute="top" secondItem="x2D-sZ-VVu" secondAttribute="bottom" constant="46" id="bNT-kw-hHV"/>
-                            <constraint firstItem="3bj-xb-GXv" firstAttribute="top" secondItem="6Bp-za-qJr" secondAttribute="bottom" constant="15" id="d5o-D6-R4O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3bj-xb-GXv" secondAttribute="trailing" id="eNS-sp-eo7"/>
-                            <constraint firstItem="Wqy-2B-5Lx" firstAttribute="top" secondItem="x2D-sZ-VVu" secondAttribute="bottom" constant="8" id="f9h-qX-bDr"/>
                             <constraint firstItem="x2D-sZ-VVu" firstAttribute="top" secondItem="EvR-zf-d2e" secondAttribute="topMargin" constant="182" id="gSn-kO-Hu0"/>
-                            <constraint firstItem="Wqy-2B-5Lx" firstAttribute="leading" secondItem="EvR-zf-d2e" secondAttribute="leadingMargin" constant="138" id="kH4-sL-dmy"/>
                             <constraint firstAttribute="trailing" secondItem="x2D-sZ-VVu" secondAttribute="trailing" id="qSG-jB-gQk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Today" id="WMe-er-AYk">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="HF1-vI-vjC"/>
-                        <barButtonItem key="rightBarButtonItem" title="Log Meal" id="8Hb-7D-YgT"/>
+                        <barButtonItem key="rightBarButtonItem" title="Log Meal" id="8Hb-7D-YgT">
+                            <connections>
+                                <segue destination="g4O-eE-5ci" kind="show" id="LbE-wm-ycF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="carbsLabel" destination="w3L-WK-Ycn" id="NRY-FY-Xco"/>
@@ -697,7 +681,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kd8-vs-fzk">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kd8-vs-fzk">
                                                 <rect key="frame" x="243" y="0.0" width="100" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="w92-af-0tO"/>
@@ -803,7 +787,7 @@
                     <navigationItem key="navigationItem" title="Log meal" id="0Sl-jX-yBQ">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="bKI-ie-qAQ">
                             <connections>
-                                <segue destination="Nke-21-gcJ" kind="show" id="VCt-Gm-OeT"/>
+                                <segue destination="Nke-21-gcJ" kind="show" id="Fm9-4C-Ls7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -902,6 +886,6 @@
         <image name="icons8-home_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yqP-H1-FxN"/>
+        <segue reference="Fm9-4C-Ls7"/>
     </inferredMetricsTieBreakers>
 </document>
