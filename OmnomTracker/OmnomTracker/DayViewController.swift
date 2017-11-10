@@ -67,8 +67,15 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             progresBarView.progress = 1
         }
 
-        sectionItems = [foods.filter{$0.lunch == 0}, foods.filter{$0.lunch == 1}, foods.filter{$0.lunch == 2}, foods.filter{$0.lunch == 3}, foods.filter{$0.lunch == 4}]
- 
+        let sectionsArray = [foods.filter{$0.lunch == 0}, foods.filter{$0.lunch == 1}, foods.filter{$0.lunch == 2}, foods.filter{$0.lunch == 3}, foods.filter{$0.lunch == 4}]
+        
+        for section in sectionsArray {
+            var mealNames = [String]()
+            for food in section {
+                mealNames.append((food.name?.capitalized)!)
+            }
+            sectionItems.append(mealNames)
+        }
 
     }
     
