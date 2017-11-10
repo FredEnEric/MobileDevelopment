@@ -43,25 +43,35 @@ class FoodRepository {
         return foodList
     }
     
-    func getFoodTitle(foodtype: Int32) -> Array<String> {
-        var foodList = [String]()
+    func getFoodToday() -> [Food] {
+        let allFoods = getAll()
+        var foodToday = [Food]()
         
-        let fetchRequest:NSFetchRequest<Food> = Food.fetchRequest()
+        let keyDateFormat = DateFormatter()
+        keyDateFormat.dateFormat = "yyyyMMdd"
+        let key = keyDateFormat.string(from: NSDate() as Date)
         
-        do {
-            let foodResult = try DatabaseController.getContext().fetch(fetchRequest)
-            
-            for food in foodResult as [Food]{
-                if(food.name?.isEmpty == false && food.lunch == foodtype){
-                    foodList.append(food.name!)
+        for food in allFoods {
+            if let date = food.date as Date? {
+                if key == keyDateFormat.string(from: date) {
+                    foodToday.append(food)
                 }
-                
             }
         }
-        catch {
-            print("Error: \(error)")
-        }
+        return foodToday
+    }
+    
+    func getFoodTitle(foodtype: Int32) -> Array<String> {
+        let foods = getFoodToday()
+        var foodList = [String]()
         
+        for food in foods {
+            if(food.name?.isEmpty == false && food.lunch == foodtype){
+                foodList.append(food.name!)
+            }
+        }
+
         return foodList
     }
+
 }

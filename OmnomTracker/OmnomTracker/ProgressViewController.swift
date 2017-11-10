@@ -8,16 +8,26 @@
 
 import UIKit
 import SwiftCharts
+import Alamofire
 
-class ProfileViewController: UIViewController {
+class ProgressViewController: UIViewController {
     @IBOutlet weak var chart: ShinobiChart!
     
     var logRepo = LogRepository()
-    var resultLogs = [Float]()
+    //var resultLogs = [Float]()
 
     var logData: [(item: String, massa: Float)] = []
     
+    var user = User()
+    
     func setupChart() {
+        let resultLogs = logRepo.getAllLogs()
+        var count = 1
+        for log in resultLogs {
+            logData.append((item: String(count), massa: Float(log)))
+            count = count + 1
+        }
+        
         chart.backgroundColor = .clear
         
         // Create chart axes
@@ -26,8 +36,8 @@ class ProfileViewController: UIViewController {
         
         let yAxis = SChartNumberAxis()
         yAxis.title = "Weight"
-        yAxis.rangePaddingLow = -resultLogs.min()! + 2
-        yAxis.rangePaddingHigh = 2
+        yAxis.rangePaddingLow = 1 - resultLogs.min()!
+        yAxis.rangePaddingHigh = 1
         chart.yAxis = yAxis
         
         // This controller will provide the data to the chart
@@ -35,25 +45,12 @@ class ProfileViewController: UIViewController {
         
         view.addSubview(chart)
     }
-
-    
-    var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultLogs = logRepo.getAllLogs()
-        var count = 1
-        for log in resultLogs {
-            logData.append((item: String(count), massa: log))
-            count = count + 1
-        }
-        setupChart()
+
         // Do any additional setup after loading the view.
-        let repo = UserRepository()
-        user = repo.get()
-        print(user.profilePicUrl)
-        print(user.gender)
-        print(user.calorieGoal)
+        setupChart()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,7 +71,7 @@ class ProfileViewController: UIViewController {
 }
 
 // MARK:- SChartDatasource Functions
-extension ProfileViewController: SChartDatasource {
+extension ProgressViewController: SChartDatasource {
     
     func numberOfSeries(in chart: ShinobiChart) -> Int {
         return 1
@@ -113,7 +110,7 @@ extension ProfileViewController: SChartDatasource {
 }
 
 // MARK:- SChartDelegate Functions
-extension ProfileViewController: SChartDelegate {
+extension ProgressViewController: SChartDelegate {
     
     func sChart(_ chart: ShinobiChart, alter label: SChartDataPointLabel, for dataPoint: SChartDataPoint, in series: SChartSeries) {
 

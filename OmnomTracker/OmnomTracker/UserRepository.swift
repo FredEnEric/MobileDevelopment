@@ -14,7 +14,7 @@ class UserRepository {
     
     func add(model: UserModel) {
         user.calorieGoal = model.calorieGoal
-        user.dateBirth = model.dateBirth!
+        //user.dateBirth = model.dateBirth!
         user.firstName = model.firstName
         user.gender = model.gender
         user.height = model.height
@@ -26,14 +26,17 @@ class UserRepository {
     }
     
     func get() -> User{
-        var user = User()
         
         let fetchRequest:NSFetchRequest<User> = User.fetchRequest()
         
         do {
-            let result = try DatabaseController.getContext().fetch(fetchRequest)
-
-            user = result[0]
+            let results = try DatabaseController.getContext().fetch(fetchRequest)
+            for result in results {
+                if(result.userId != 0){
+                    user = result
+                    break
+                }
+            }
         }
         catch {
             print("Error: \(error)")
