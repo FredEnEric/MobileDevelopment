@@ -99,6 +99,7 @@ class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         //self.navigationItem.setHidesBackButton(false, animated: false)
+        animateOut()
     }
     
     override func didReceiveMemoryWarning() {
@@ -148,7 +149,7 @@ class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat{
-        return 0;
+        return 2;
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -171,10 +172,7 @@ class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         let headerTapGesture = UITapGestureRecognizer()
         headerTapGesture.addTarget(self, action: #selector(TodayViewController.sectionHeaderWasTouched(_:)))
         header.addGestureRecognizer(headerTapGesture)
-        
-        // give headers a border
-        header.layer.borderWidth = 2.0
-        header.layer.borderColor = UIColor.white.cgColor
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -323,8 +321,8 @@ class TodayViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         UIView.animate(withDuration: 0.3, animations: {
             self.logWeightView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             self.logWeightView.alpha = 0
-            self.blurEffectView.effect = nil
-            self.blurEffectView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+            self.blurEffectView?.effect = nil
+            self.blurEffectView?.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         }, completion: { (finished: Bool) in
             self.logWeightView.removeFromSuperview()
         })

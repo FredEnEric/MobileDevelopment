@@ -20,7 +20,6 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     @IBOutlet weak var weightGoaldField: UITextField!
     @IBOutlet weak var calorieGoaldField: UITextField!
     
-    @IBOutlet weak var messageLabel: UILabel!
     //pickers
     let picker = UIDatePicker()
     var genderPicker = UIPickerView()
@@ -248,10 +247,7 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
  
     func isValid() -> Bool {
         
-        if(height != 0 && weight != 0 && calorieGoal != 0 && !gender.isEmpty && weightGoal != 0) {
-            return true
-        }
-        return false
+        return height != 0 && weight != 0 && calorieGoal != 0 && !gender.isEmpty && weightGoal != 0
         
     }
 }

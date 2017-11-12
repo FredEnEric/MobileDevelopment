@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftCharts
-import Alamofire
 
 class ProgressViewController: UIViewController {
     @IBOutlet weak var chart: ShinobiChart!

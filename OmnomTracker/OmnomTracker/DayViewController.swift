@@ -36,52 +36,20 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.dataSource = self
         
         self.tableView!.tableFooterView = UIView()
+        self.loadData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.title = date
-        
-        user = UserRepository().get()
-        var sumCalories : Int32 = 0
-        var sumCarbs : Float = 0
-        var sumFats : Float = 0
-        var sumProteins : Float = 0
-        
-        for food in foods {
-            sumCalories += Int32(food.portions) * food.calories
-            sumCarbs += Float(food.portions) * food.carbs
-            sumFats += Float(food.portions) * food.fat
-            sumProteins += Float(food.portions) * food.protein
-        }
-
-        carbsLabel.text = String(Int32(sumCarbs.rounded())) + " grams"
-        fatLabel.text = String(Int32(sumFats.rounded())) + " grams"
-        proteinLabel.text = String(Int32(sumProteins.rounded())) + " grams"
-        
-        if(sumCalories < Int32(user.calorieGoal)){
-            progresBarView.progress = Float(sumCalories) / Float(user.calorieGoal)
-        }
-        else {
-            progresBarView.progress = 1
-        }
-
-        let sectionsArray = [foods.filter{$0.lunch == 0}, foods.filter{$0.lunch == 1}, foods.filter{$0.lunch == 2}, foods.filter{$0.lunch == 3}, foods.filter{$0.lunch == 4}]
-        
-        for section in sectionsArray {
-            var mealNames = [String]()
-            for food in section {
-                mealNames.append((food.name?.capitalized)!)
-            }
-            sectionItems.append(mealNames)
-        }
-
+        foods = [Food]()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        //self.navigationItem.setHidesBackButton(false, animated: false)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -110,6 +78,42 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return 0
     }
     
+    func loadData() {
+        user = UserRepository().get()
+        var sumCalories : Int32 = 0
+        var sumCarbs : Float = 0
+        var sumFats : Float = 0
+        var sumProteins : Float = 0
+        
+        for food in foods {
+            sumCalories += Int32(food.portions) * food.calories
+            sumCarbs += Float(food.portions) * food.carbs
+            sumFats += Float(food.portions) * food.fat
+            sumProteins += Float(food.portions) * food.protein
+        }
+        
+        carbsLabel.text = String(Int32(sumCarbs.rounded())) + " grams"
+        fatLabel.text = String(Int32(sumFats.rounded())) + " grams"
+        proteinLabel.text = String(Int32(sumProteins.rounded())) + " grams"
+        
+        if(sumCalories < Int32(user.calorieGoal)){
+            progresBarView.progress = Float(sumCalories) / Float(user.calorieGoal)
+        }
+        else {
+            progresBarView.progress = 1
+        }
+        
+        let sectionsArray = [foods.filter{$0.lunch == 0}, foods.filter{$0.lunch == 1}, foods.filter{$0.lunch == 2}, foods.filter{$0.lunch == 3}, foods.filter{$0.lunch == 4}]
+        
+        for section in sectionsArray {
+            var mealNames = [String]()
+            for food in section {
+                mealNames.append((food.name?.capitalized)!)
+            }
+            sectionItems.append(mealNames)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (self.expandedSectionHeaderNumber == section) {
             let arrayOfItems = self.sectionItems[section] as! NSArray
@@ -131,7 +135,7 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat{
-        return 0;
+        return 2;
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -154,10 +158,7 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let headerTapGesture = UITapGestureRecognizer()
         headerTapGesture.addTarget(self, action: #selector(TodayViewController.sectionHeaderWasTouched(_:)))
         header.addGestureRecognizer(headerTapGesture)
-        
-        // give headers a border
-        header.layer.borderWidth = 2.0
-        header.layer.borderColor = UIColor.white.cgColor
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

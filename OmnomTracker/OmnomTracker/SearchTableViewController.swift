@@ -44,8 +44,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         let url = "\(self.baseURL)\(searchText)"
         self.getDataFromApi(url: url )
         
-        // update view
-        self.resultsController.tableView.reloadData()
     }
     
     private func getDataFromApi(url: String) -> () {
@@ -54,6 +52,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         Alamofire.request(url, headers: self.headers).responseJSON { response in
             if let data = response.result.value {
                 self.storeData(apiResponse: data as AnyObject)
+                // update view
+                self.resultsController.tableView.reloadData()
             }
         }
         

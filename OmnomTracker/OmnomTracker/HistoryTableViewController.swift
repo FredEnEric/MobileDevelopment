@@ -26,7 +26,7 @@ class HistoryTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-        
+        clearData()
         fetchData()
     }
 
@@ -35,6 +35,11 @@ class HistoryTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func clearData() {
+        keys = [Int]()
+        cellLabels = [Int: String]()
+        store = [Int: [Food]]()
+    }
     
     // MARK: - Table view data source
 

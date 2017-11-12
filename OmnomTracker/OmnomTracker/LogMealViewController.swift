@@ -31,7 +31,7 @@ class LogMealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     let foodModel = FoodModel()
     
     var mealName = "Omnomnom"
-    var mealId = "not set" 
+    var mealId = "not set"
     
     let baseURL = "https://trackapi.nutritionix.com/v2/search/instant?branded=false&detailed=true&query="
     let headers: HTTPHeaders = [
@@ -54,9 +54,14 @@ class LogMealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         mealTimeField.setBottomBorder()
     }
     
-    //als we op save klikken
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if shouldSaveMeal() {
+            putMealInDatabase()
+        }
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
-        putMealInDatabase()
         super.viewDidDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
     }
@@ -173,6 +178,9 @@ class LogMealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         foodRepo.add(model: foodModel)
     }
     
+    func shouldSaveMeal() -> Bool {
+        return !(mealTimeField.text?.isEmpty)! && Int(amountOfPortionsField.text!) != nil
+    }
     
     // MARK: - Navigation
     
