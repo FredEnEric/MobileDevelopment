@@ -72,9 +72,9 @@ class RegisterTableController: UITableViewController, UIPickerViewDataSource, UI
     }
     
     //als we op save klikken
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         putUserInDatabase()
-        super.viewDidDisappear(animated)
     }
     
     func putUserInDatabase() {

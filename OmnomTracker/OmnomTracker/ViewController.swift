@@ -29,7 +29,7 @@ class ViewController: UIViewController{
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "first_name, gender, picture.type(large)"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     let fbDetails = result as! NSDictionary
-
+                    
                     self.user.gender = fbDetails["gender"] as? String
                     self.user.gender = self.user.gender?.capitalized
                     self.user.firstName = fbDetails["first_name"] as? String
@@ -39,7 +39,6 @@ class ViewController: UIViewController{
                 }
             })
         }
-
     }
 
     override func didReceiveMemoryWarning() {

@@ -25,22 +25,17 @@ class FoodRepository {
     }
     
     func getAll() -> Array<Food>{
-        var foodList = [Food]()
-        
+      
         let fetchRequest:NSFetchRequest<Food> = Food.fetchRequest()
         
         do {
-            let foodResult = try DatabaseController.getContext().fetch(fetchRequest)
-            
-            for food in foodResult as [Food]{
-                foodList.append(food)
-            }
+            return try DatabaseController.getContext().fetch(fetchRequest)
         }
         catch {
             print("Error: \(error)")
         }
-
-        return foodList
+        
+        return [Food]()
     }
     
     func getFoodToday() -> [Food] {
